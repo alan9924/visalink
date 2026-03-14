@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="VisaLink" />
+  <meta name="theme-color" content="#0a0f1c" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>VisaLink – Visa USA 2026 | DS-160 y Semáforo de Aprobación</title>
+  <meta name="description" content="Prepara tu visa de turista USA B1/B2 2026 con VisaLink. Semáforo de elegibilidad GRATIS, guía DS-160 y simulador de entrevista consular." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── APP SHELL ── */
+    :root {
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --tab-h: 64px;
+      --primary: hsl(224,76%,48%);
+      --primary-light: hsl(224,76%,65%);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: hsl(225,25%,5%) url('hero_bg_new.png') center/cover fixed no-repeat;
+      color: #fff;
+      min-height: 100svh;
+      overflow-x: hidden;
+      /* room for bottom nav */
+      padding-bottom: calc(var(--tab-h) + var(--safe-bottom));
+    }
+
+    /* ── TAB PAGES ── */
+    .tab-page {
+      display: none;
+      min-height: 100svh;
+      animation: fadeInUp 0.28s ease;
+    }
+    .tab-page.active { display: block; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── TOP STATUS BAR SPACER (iOS notch) ── */
+    .status-spacer {
+      height: var(--safe-top);
+      background: transparent;
+    }
+
+    /* ════════════════════════════════
+       PAGE: INICIO — Hero + Cards
+    ════════════════════════════════ */
+
+    .home-page {
+      background: linear-gradient(to bottom, transparent 0%, hsla(225,25%,5%,0.6) 20%, hsl(225,25%,5%) 100%);
+      min-height: 100svh;
+    }
+
+    .home-hero {
+      position: relative;
+      overflow: hidden;
+      padding: calc(22px + var(--safe-top)) 22px 32px;
+      background: transparent;
+    }
+
+    .logo-badge-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+
+
+
+
+    .home-hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.1rem, 8.5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .home-hero h1 span {
+      background: linear-gradient(135deg, var(--primary-light) 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .home-hero p {
+      font-size: 1rem;
+      color: hsla(0,0%,100%,0.68);
+      line-height: 1.6;
+      max-width: 420px;
+      margin-bottom: 26px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .hero-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 13px 22px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      box-shadow: 0 4px 20px hsla(224,76%,50%,0.45);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .hero-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: 1px solid hsla(0,0%,100%,0.2);
+      cursor: pointer;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .hero-btn-primary:active { transform: scale(0.96); }
+    .hero-btn-secondary:active { background: hsla(0,0%,100%,0.06); }
+
+    /* Stats Row */
+    .home-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .home-stat {
+      padding: 14px 10px;
+      text-align: center;
+    }
+
+    .home-stat-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .home-stat-lbl {
+      font-size: 0.67rem;
+      color: hsla(0,0%,100%,0.5);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    /* ── QUICK ACTIONS GRID ── */
+    .actions-section {
+      padding: 28px 18px 12px;
+    }
+
+    .actions-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: hsla(0,0%,100%,0.4);
+      margin-bottom: 16px;
+      padding-left: 2px;
+    }
+
+    .actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .action-card {
+      position: relative;
+      background: hsla(0,0%,100%,0.04);
+      border: 1px solid hsla(0,0%,100%,0.08); /* Important for glowing effect padding */
+      border-radius: 20px;
+      padding: 24px 18px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 160px;
+      gap: 10px;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      overflow: visible; /* Changed from hidden so glow works outside border */
+      z-index: 1;
+    }
+
+    .action-card:active {
+      background: hsla(0,0%,100%,0.09);
+      transform: scale(0.97);
+    }
+
+    .action-card.accent-blue {
+      background: hsla(224,76%,48%,0.12);
+      border-color: hsla(224,76%,65%,0.25);
+    }
+    .action-card.accent-purple {
+      background: hsla(262,60%,55%,0.12);
+      border-color: hsla(262,60%,65%,0.25);
+    }
+    .action-card.accent-green {
+      background: hsla(158,84%,40%,0.1);
+      border-color: hsla(158,84%,40%,0.25);
+    }
+    .action-card.accent-amber {
+      background: hsla(38,92%,50%,0.1);
+      border-color: hsla(38,92%,50%,0.25);
+    }
+
+    .action-card-wide {
+      grid-column: span 2;
+      min-height: 120px;
+      padding: 20px;
+      flex-direction: column;
+    }
+
+    .action-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Nano Banana Icon Styles */
+    .action-img-container {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: transparent;
+      box-shadow: 0 4px 12px hsla(0,0%,0%,0.2);
+      overflow: hidden;
+      border: 1px solid hsla(255,255,255,0.1);
+      position: relative;
+      z-index: 2;
+    }
+    .action-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      padding: 0;
+      transform: scale(1.25);
+    }
+
+    .action-icon.blue  { background: hsla(224,76%,48%,0.25); }
+    .action-icon.purple { background: hsla(262,60%,55%,0.25); }
+    .action-icon.green { background: hsla(158,84%,40%,0.2); }
+    .action-icon.amber { background: hsla(38,92%,50%,0.2); }
+    .action-icon.red   { background: hsla(0,84%,60%,0.2); }
+
+    .action-card-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .action-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 2px;
+      position: relative;
+      z-index: 2;
+      letter-spacing: -0.02em;
+    }
+
+    .action-card-desc {
+      font-size: 0.9rem;
+      color: hsla(0,0%,100%,0.6);
+      line-height: 1.3;
+      position: relative;
+      z-index: 2;
+    }
+
+    .action-card-arrow {
+      display: none;
+    }
+
+    .action-card-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: hsla(158,84%,40%,0.2);
+      color: #10b981;
+      border: 1px solid hsla(158,84%,40%,0.3);
+      margin-top: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+
+
+    /* ════════════════════════════════
+       PAGE: SEMÁFORO (quiz tab)
+    ════════════════════════════════ */
+    .tab-page-inner {
+      padding: calc(24px + var(--safe-top)) 18px 24px;
+    }
+
+    .tab-header {
+      margin-bottom: 28px;
+    }
+
+    .tab-logo-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .tab-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.7rem, 6vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+
+    .tab-header p {
+      font-size: 0.93rem;
+      color: hsla(0,0%,100%,0.6);
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════
+       PAGE: INFO (full landing scroll)
+    ════════════════════════════════ */
+    .info-page {
+      padding-top: var(--safe-top);
+    }
+
+    /* Desktop navbar hidden in mobile tab mode */
+    @media (max-width: 768px) {
+      .info-page .navbar { display: none; }
+    }
+
+    /* ── DESKTOP & MOBILE PAGES ── */
+    @media (min-width: 769px) {
+      body { padding-bottom: 0; }
+      .tab-page { display: none !important; }
+      .tab-page.active { display: block !important; }
+      /* On desktop, all pages show in normal scroll */
+    }
+
+    /* ── Pricing / FAQ content wrapped for tab ── */
+    .tab-content-wrap {
+      background: transparent;
+    }
+    .tab-content-wrap .pricing,
+    .tab-content-wrap .faq {
+      padding-top: calc(24px + var(--safe-top));
+    }
+
+    /* Notification badge on tab */
+    .tab-badge {
+      position: absolute;
+      top: 6px; right: calc(50% - 18px);
+      width: 8px; height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      border: 2px solid hsl(225,25%,5%);
+    }
+
+    /* ── GLOWING EFFECT ── */
+    .glowing-effect-wrapper {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glowing-effect-glow {
+      --glowing-gradient: 
+        radial-gradient(circle, #dd7bbb 10%, transparent 20%),
+        radial-gradient(circle at 40% 40%, #d79f1e 5%, transparent 15%),
+        radial-gradient(circle at 60% 60%, #5a922c 10%, transparent 20%), 
+        radial-gradient(circle at 40% 60%, #4c7894 10%, transparent 20%),
+        repeating-conic-gradient(
+          from 236.84deg at 50% 50%,
+          #dd7bbb 0%,
+          #d79f1e calc(25% / 5),
+          #5a922c calc(50% / 5), 
+          #4c7894 calc(75% / 5),
+          #dd7bbb calc(100% / 5)
+        );
+
+      position: absolute;
+      inset: -3px; /* border-width */
+      border-radius: inherit;
+      border: 3px solid transparent;
+      background: var(--glowing-gradient);
+      background-attachment: fixed;
+      opacity: var(--active, 0);
+      transition: opacity 0.3s;
+      outline: none;
+      
+      mask-image: linear-gradient(#fff, #fff), conic-gradient(from calc((var(--start, 0) - var(--spread, 40)) * 1deg), transparent 0deg, #fff, transparent calc(var(--spread, 40) * 2deg));
+      mask-clip: padding-box, border-box;
+      mask-composite: exclude;
+      -webkit-mask-image: linear-gradient(#fff, #fff), conic-gradient(from calc((var(--start, 0) - var(--spread, 40)) * 1deg), transparent 0deg, #fff, transparent calc(var(--spread, 40) * 2deg));
+      -webkit-mask-clip: padding-box, border-box;
+      -webkit-mask-composite: xor;
+    }
+
+    /* ── GET STARTED BUTTON ── */
+    .get-started-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      border-radius: 12px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      height: 60px;
+      padding: 0 40px;
+      background-color: var(--primary);
+      color: #ffffff;
+      border: none;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s;
+      box-shadow: 0 4px 20px hsla(224, 76%, 50%, 0.45);
+      font-family: inherit;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .get-started-btn:hover {
+      background-color: var(--primary-dark, hsl(224, 85%, 35%));
+    }
+
+    .get-started-btn .btn-text {
+      margin-right: 32px;
+      transition: opacity 0.5s ease;
+      z-index: 2;
+      position: relative;
+    }
+
+    .get-started-btn:hover .btn-text {
+      opacity: 0;
+    }
+
+    .get-started-btn .btn-icon-wrapper {
+      position: absolute;
+      right: 4px;
+      top: 4px;
+      bottom: 4px;
+      border-radius: 8px;
+      z-index: 10;
+      display: grid;
+      width: 25%;
+      place-items: center;
+      transition: all 0.5s ease;
+      background-color: hsla(0, 0%, 100%, 0.15);
+      color: #fff;
+    }
+
+    .get-started-btn:hover .btn-icon-wrapper {
+      width: calc(100% - 8px);
+    }
+
+    .get-started-btn:active .btn-icon-wrapper {
+      transform: scale(0.95);
+    }
+
+    @keyframes scroll-vertical-loop {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(calc(-50% - 7px)); }
+    }
+
+    /* ── STICKY START BUTTON ── */
+    .sticky-cta-outer {
+      position: fixed;
+      bottom: 24px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: 2000;
+      pointer-events: none;
+      padding: 0 20px;
+    }
+    .sticky-cta-main {
+      pointer-events: auto;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 16px 32px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 12px 30px hsla(224, 76%, 50%, 0.4);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 0.2s;
+      animation: bounceInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards 1s;
+    }
+    .sticky-cta-main:active { transform: scale(0.96); }
+
+    @keyframes bounceInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     TAB PAGES
+══════════════════════════════════════════════ -->
+
+<!-- ── TAB 1: INICIO ── -->
+<div class="tab-page active" id="tab-inicio">
+  <div class="home-page">
+
+    <!-- Hero -->
+    <section class="home-hero">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+        <img src="Photoroom_20260310_150953.PNG" alt="Visa USA 2026 Activo" class="logo-badge-img">
+
+      </div>
+      <h1>Tu puente seguro hacia <span>Estados Unidos.</span></h1>
+      <p>Evita rechazos. Prepara tu DS-160 y entrevista consular con nuestra plataforma guiada.</p>
+
+
+      <!-- Stats -->
+      <div class="home-stats">
+        <div class="home-stat">
+          <div class="home-stat-num">2500+</div>
+          <div class="home-stat-lbl">Aprobados</div>
+        </div>
+        <div class="home-stat">
+          <div class="home-stat-num">94%</div>
+          <div class="home-stat-lbl">Tasa de éxito</div>
+        </div>
+        <div class="home-stat">
+          <div class="home-stat-num">12</div>
+          <div class="home-stat-lbl">Consulados</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="actions-section">
+      <div class="actions-title">Acciones rápidas</div>
+      <div class="actions-grid">
+
+        <!-- Semáforo -->
+        <div class="action-card accent-blue" onclick="showTab('semaforo')" data-glow>
+          <div class="glowing-effect-wrapper"><div class="glowing-effect-glow"></div></div>
+          <div class="action-card-content">
+            <div class="action-card-title">Semáforo</div>
+            <div class="action-card-desc">Califica tu perfil consular gratis</div>
+            <div class="action-card-tag">GRATIS</div>
+          </div>
+        </div>
+
+        <!-- Planes -->
+        <div class="action-card accent-purple" onclick="showTab('planes')" data-glow>
+          <div class="glowing-effect-wrapper"><div class="glowing-effect-glow"></div></div>
+          <div class="action-card-content">
+            <div class="action-card-title">Planes</div>
+            <div class="action-card-desc">Básico, Estándar y Pro</div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="action-card accent-green" onclick="showTab('faq')" data-glow>
+          <div class="glowing-effect-wrapper"><div class="glowing-effect-glow"></div></div>
+          <div class="action-card-content">
+            <div class="action-card-title">Preguntas</div>
+            <div class="action-card-desc">DS-160, cita, documentos</div>
+          </div>
+        </div>
+
+        <!-- Proceso -->
+        <div class="action-card accent-amber" onclick="showTab('info')" data-glow>
+          <div class="glowing-effect-wrapper"><div class="glowing-effect-glow"></div></div>
+          <div class="action-card-content">
+            <div class="action-card-title">Proceso</div>
+            <div class="action-card-desc">8 pasos hacia tu visa</div>
+          </div>
+        </div>
+
+        <!-- WhatsApp — full width -->
+        <div class="action-card action-card-wide" onclick="window.open('https://wa.me/524271035773?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20VisaLink','_blank')" data-glow>
+          <div class="glowing-effect-wrapper"><div class="glowing-effect-glow"></div></div>
+          <div class="action-card-content">
+            <div class="action-card-title">Hablar con un Asesor</div>
+            <div class="action-card-desc">WhatsApp · Respuesta en minutos</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Sticky CTA center -->
+    <div class="sticky-cta-outer">
+      <button class="sticky-cta-main" onclick="showTab('semaforo')">
+        Empezar proceso
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:20px; height:20px; margin-left:10px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </div>
+
+  </div><!-- /home-page -->
+</div>
+
+<!-- ── TAB 2: SEMÁFORO ── -->
+<div class="tab-page" id="tab-semaforo">
+  <div class="tab-page-inner">
+    <!-- Mini header volver a casa -->
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom: 24px;">
+      <button onclick="showTab('inicio')" style="background:hsla(0,0%,100%,0.06); border:1px solid hsla(0,0%,100%,0.1); color:#fff; width:36px; height:36px; border-radius:50%; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;" aria-label="Volver a casa">‹</button>
+      <span style="font-weight:700; font-size:0.95rem;">Volver a casa</span>
+    </div>
+    <div class="tab-header">
+      <img src="Photoroom_20260310_150953.PNG" alt="Visa USA 2026 Activo" class="tab-logo-img">
+      <h2>Semáforo de Aprobación</h2>
+      <p>Califica tu perfil como lo haría el cónsul. 10 preguntas, resultado inmediato.</p>
+    </div>
+  </div>
+  <!-- Quiz content is injected here by app.js -->
+  <div style="padding: 0 18px 32px;">
+    <div id="quiz-progress-bar" class="quiz-progress-bar" style="margin-bottom:0; border-radius:0;">
+      <div class="quiz-progress-inner">
+        <span class="quiz-progress-label" id="quiz-progress-label">Pregunta 1 de 10</span>
+        <div class="quiz-progress-track">
+          <div class="quiz-fill" id="quiz-fill"></div>
+        </div>
+      </div>
+    </div>
+    <div class="quiz-card" id="quiz-card" style="border-radius: 20px; margin-top: 16px;">
+      <p class="quiz-question" id="quiz-question-text"></p>
+      <div class="quiz-options" id="quiz-options"></div>
+
+    </div>
+    <div class="quiz-result" id="quiz-result" style="display:none; border-radius:20px; margin-top:16px;">
+      <div class="result-traffic-light">
+        <div class="tl-light" id="tl-red"></div>
+        <div class="tl-light" id="tl-yellow"></div>
+        <div class="tl-light" id="tl-green"></div>
+      </div>
+      <div class="result-score">
+        <span class="result-score-number" id="result-score">0</span>
+        <span class="result-score-pct">/ 100</span>
+      </div>
+      <h3 class="result-title" id="result-title"></h3>
+      <div class="result-factors" id="result-factors"></div>
+      <div class="result-ctas" style="flex-direction:column; gap:12px; margin-top:24px;">
+        <a href="#planes" onclick="showTab('planes')" class="btn-primary" style="text-align:center; justify-content:center;">Ver Planes →</a>
+        <button id="whatsapp-quiz-btn" onclick="sendQuizToWhatsApp()" class="btn-secondary" style="text-align:center; justify-content:center; cursor:pointer; background:#25D366; color:#fff; border:none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px; vertical-align:middle;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Hablar con un asesor
+        </button>
+        <button onclick="restartQuiz()" class="btn-secondary" style="text-align:center; justify-content:center; cursor:pointer;">Repetir Diagnóstico</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TAB 3: PLANES ── -->
+<div class="tab-page" id="tab-planes">
+  <div class="tab-content-wrap">
+    <div class="tab-page-inner" style="padding-bottom:0;">
+      <!-- Mini header volver a casa -->
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom: 24px;">
+        <button onclick="showTab('inicio')" style="background:hsla(0,0%,100%,0.06); border:1px solid hsla(0,0%,100%,0.1); color:#fff; width:36px; height:36px; border-radius:50%; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;" aria-label="Volver a casa">‹</button>
+        <span style="font-weight:700; font-size:0.95rem;">Volver a casa</span>
+      </div>
+      <div class="tab-header">
+        <img src="Photoroom_20260310_150953.PNG" alt="Visa USA 2026 Activo" class="tab-logo-img">
+        <h2>Elige tu Plan</h2>
+        <p>Sin contratos ocultos. Cancelación antes del primer contacto.</p>
+      </div>
+    </div>
+    <!-- Pricing section pulled from styles -->
+    <section class="pricing" id="precios" style="padding-top:0;">
+      <div class="container">
+        <div class="pricing-grid">
+
+          <div class="pricing-card popular">
+            <div class="popular-badge"> Más popular</div>
+            <div class="plan-name">Estándar</div>
+            <div class="price-block">
+              <span class="price-currency">$</span>
+              <span class="price-amount">3,200</span>
+              <span class="price-period">MXN / único pago</span>
+            </div>
+            <p class="plan-tagline">Perfecto si es tu primera solicitud</p>
+            <ul class="plan-features">
+              <li><span class="feat-check"></span> Semáforo de probabilidad</li>
+              <li><span class="feat-check"></span> Llenado del DS-160 completo</li>
+              <li><span class="feat-check"></span> Preparación de entrevista (2 sesiones)</li>
+              <li><span class="feat-check"></span> Coordinación de cita consular</li>
+              <li><span class="feat-check"></span> Soporte WhatsApp 7 días</li>
+            </ul>
+            <button class="btn-plan btn-plan-primary" onclick="handlePurchase('Estándar', 3200)">Contratar Estándar</button>
+          </div>
+
+          <div class="pricing-card">
+            <div class="plan-name">Básico</div>
+            <div class="price-block">
+              <span class="price-currency">$</span>
+              <span class="price-amount">1,800</span>
+              <span class="price-period">MXN / único pago</span>
+            </div>
+            <p class="plan-tagline">Para perfiles con alta elegibilidad</p>
+            <ul class="plan-features">
+              <li><span class="feat-check"></span> Semáforo de probabilidad</li>
+              <li><span class="feat-check"></span> Guía DS-160 paso a paso</li>
+              <li><span class="feat-check"></span> Checklist de documentos</li>
+              <li><span class="feat-muted">–</span> Preparación de entrevista</li>
+              <li><span class="feat-muted">–</span> Soporte extendido</li>
+            </ul>
+            <button class="btn-plan btn-plan-secondary" onclick="handlePurchase('Básico', 1800)">Contratar Básico</button>
+          </div>
+
+          <div class="pricing-card">
+            <div class="plan-name">Pro</div>
+            <div class="price-block">
+              <span class="price-currency">$</span>
+              <span class="price-amount">5,500</span>
+              <span class="price-period">MXN / único pago</span>
+            </div>
+            <p class="plan-tagline">Para casos complejos o rechazos previos</p>
+            <ul class="plan-features">
+              <li><span class="feat-check"></span> Todo lo del plan Estándar</li>
+              <li><span class="feat-check"></span> Asesor dedicado asignado</li>
+              <li><span class="feat-check"></span> Sesiones de entrevista ilimitadas</li>
+              <li><span class="feat-check"></span> Análisis de rechazo previo</li>
+              <li><span class="feat-check"></span> Garantía de reintento</li>
+            </ul>
+            <button class="btn-plan btn-plan-secondary" onclick="handlePurchase('Pro', 5500)">Contratar Pro</button>
+          </div>
+
+        </div>
+        <p style="text-align:center; color:hsla(0,0%,100%,0.4); font-size:0.8rem; margin-top:24px; padding: 0 8px;">
+          Todos los planes incluyen garantía de satisfacción. Pago seguro vía Stripe / MercadoPago.
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ── TAB 4: FAQ ── -->
+<div class="tab-page" id="tab-faq">
+  <div class="tab-page-inner">
+    <!-- Mini header volver a casa -->
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom: 24px;">
+      <button onclick="showTab('inicio')" style="background:hsla(0,0%,100%,0.06); border:1px solid hsla(0,0%,100%,0.1); color:#fff; width:36px; height:36px; border-radius:50%; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;" aria-label="Volver a casa">‹</button>
+      <span style="font-weight:700; font-size:0.95rem;">Volver a casa</span>
+    </div>
+    <div class="tab-header">
+      <img src="Photoroom_20260310_150953.PNG" alt="Visa USA 2026 Activo" class="tab-logo-img">
+      <h2>Preguntas Frecuentes</h2>
+      <p>Todo lo que necesitas saber sobre tu trámite de visa.</p>
+    </div>
+  </div>
+  <div style="padding: 0 18px 32px;">
+    <div class="faq-list">
+      <div class="faq-item" id="faq-m1">
+        <button class="faq-question" onclick="toggleFaq('faq-m1')" aria-expanded="false">
+          ¿Qué es el DS-160 y cómo afecta mi solicitud?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>El DS-160 es el formulario oficial de solicitud de visa no inmigrante del Departamento de Estado de EE.UU. Es el documento central de tu trámite: un error en él puede causar rechazo inmediato. VisaLink revisa y completa tu DS-160 con criterios consulares actualizados para 2026.</p>
+        </div>
+      </div>
+      <div class="faq-item" id="faq-m2">
+        <button class="faq-question" onclick="toggleFaq('faq-m2')" aria-expanded="false">
+          ¿Cómo funciona VisaLink paso a paso?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>1. Haces el Semáforo gratuito para conocer tu probabilidad. 2. Seleccionas el plan que mejor se adapte a tu perfil. 3. Tu asesor asignado coordina tu DS-160, documentación y cita consular. 4. Preparamos tu entrevista con simulaciones de preguntas reales. 5. El día de tu cita, estamos contigo.</p>
+        </div>
+      </div>
+      <div class="faq-item" id="faq-m3">
+        <button class="faq-question" onclick="toggleFaq('faq-m3')" aria-expanded="false">
+          ¿Qué documentos necesito para la visa B1/B2?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Los documentos básicos incluyen: pasaporte vigente (mín. 6 meses), foto reciente, DS-160 completado, comprobante de cita, voucher de pago MRV ($185 USD), estados de cuenta bancarios de los últimos 3 meses, comprobante de empleo o negocio, y carta de propósito de viaje. VisaLink te proporciona un checklist personalizado según tu perfil.</p>
+        </div>
+      </div>
+      <div class="faq-item" id="faq-m4">
+        <button class="faq-question" onclick="toggleFaq('faq-m4')" aria-expanded="false">
+          ¿Cuánto tiempo tarda el proceso completo?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>El proceso varía según el consulado. En promedio, desde que contratas hasta el día de entrevista son 4 a 12 semanas, dependiendo de la disponibilidad de citas en tu ciudad. Los consulados de CDMX y GDL suelen tener disponibilidad más rápida. VisaLink monitorea la agenda y te avisa de cancelaciones disponibles.</p>
+        </div>
+      </div>
+      <div class="faq-item" id="faq-m5">
+        <button class="faq-question" onclick="toggleFaq('faq-m5')" aria-expanded="false">
+          ¿Me garantizan la aprobación de la visa?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Ninguna empresa puede garantizar legalmente la aprobación, ya que la decisión final pertenece exclusivamente al cónsul. Lo que sí garantizamos es que tu expediente estará preparado al más alto nivel posible para maximizar tus probabilidades. Nuestra tasa de éxito actual es del 94% en casos que presentan un Semáforo amarillo o verde.</p>
+        </div>
+      </div>
+      <div class="faq-item" id="faq-m6">
+        <button class="faq-question" onclick="toggleFaq('faq-m6')" aria-expanded="false">
+          Tengo un rechazo previo, ¿puedo aplicar de nuevo?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Sí, puedes aplicar de nuevo, pero el rechazo previo siempre será visible para el cónsul. La clave es que haya un cambio real y documentado en tu situación personal, laboral o financiera. Nuestro Plan Pro incluye análisis de rechazo previo y una estrategia personalizada para contrarrestar las razones del mismo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TAB 5: INFO (Landing completo) ── -->
+<div class="tab-page" id="tab-info">
+  <div class="info-page">
+
+    <!-- Mini header para tab info -->
+    <div style="padding: calc(18px + var(--safe-top)) 18px 4px; display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button onclick="showTab('inicio')" style="background:hsla(0,0%,100%,0.06); border:1px solid hsla(0,0%,100%,0.1); color:#fff; width:36px; height:36px; border-radius:50%; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;" aria-label="Volver a casa">‹</button>
+        <span style="font-weight:700; font-size:0.95rem;">Volver a casa</span>
+      </div>
+    </div>
+    
+    <div style="padding: 12px 18px 16px; text-align:center;">
+      <a href="about.html" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:var(--primary-light, #4b7df7); color:#fff; font-weight:800; font-size:1rem; padding:12px 28px; border-radius:50px; text-decoration:none; box-shadow:0 4px 15px hsla(224,76%,55%,0.4); letter-spacing:0.02em;">
+        ¿POR QUÉ VISALINK?
+      </a>
+    </div>
+
+
+
+    <!-- How it works -->
+    <section class="how-it-works" id="como-funciona">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">El proceso</span>
+          <h2 class="section-title">8 pasos hacia tu visa</h2>
+          <p class="section-subtitle">De la evaluación inicial al plástico en mano.</p>
+        </div>
+        <div class="steps-timeline">
+          <div class="step-item"><span class="step-number">01</span><div class="step-content"><h3>Semáforo de Probabilidad</h3><p>Evaluamos tu perfil con criterios consulares reales en minutos.</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">02</span><div class="step-content"><h3>Diseño de Perfil</h3><p>Identificamos tus fortalezas y puntos a mejorar antes de aplicar.</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">03</span><div class="step-content"><h3>DS-160 Completo</h3><p>Llenamos el formulario oficial sin riesgo de errores fatales.</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">04</span><div class="step-content"><h3>Pago del MRV</h3><p>Te guiamos en el pago de la cuota en bancos autorizados ($185 USD).</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">05</span><div class="step-content"><h3>Programación de Cita</h3><p>Conseguimos el espacio más próximo en el consulado de tu ciudad.</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">06</span><div class="step-content"><h3>Preparación de Entrevista</h3><p>Simulaciones con preguntas reales del cónsul y análisis de respuestas.</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">07</span><div class="step-content"><h3>Día de la Entrevista</h3><p>Apoyo en tiempo real. Sabrás exactamente qué decir y cómo presentarte.</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">08</span><div class="step-content"><h3>Visa Aprobada</h3><p>Recibes tu pasaporte con la visa. ¡Es hora de viajar!</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials preview -->
+    <section class="testimonials" id="testimonios">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Lo que dicen nuestros clientes</span>
+          <h2 class="section-title">Comentarios</h2>
+        </div>
+        <div style="height: 380px; overflow: hidden; position: relative; mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);">
+          <div style="display:flex; flex-direction:column; gap:14px; animation: scroll-vertical-loop 16s linear infinite;">
+            <div class="testimonial-card">
+              <p>"Llevaba dos rechazos previos y ya había perdido la esperanza. Mi asesor me escuchó con paciencia, entendió mi situación y me guió paso a paso. Gracias a su dedicación, me aprobaron la visa en mi tercera cita."</p>
+              <div class="testimonial-author"><div class="author-avatar">MR</div><div><strong>Miguel R.</strong><span>CDMX · Visa B1/B2 aprobada</span></div></div>
+            </div>
+            <div class="testimonial-card">
+              <p>"Estaba muy nerviosa y no sabía por dónde empezar. Mi asesora fue increíblemente amable, me explicó todo con calma y nunca me dejó sola en el proceso. Cuando el cónsul me aprobó, casi lloré de felicidad."</p>
+              <div class="testimonial-author"><div class="author-avatar">LG</div><div><strong>Laura G.</strong><span>Guadalajara · Visa B1/B2 aprobada</span></div></div>
+            </div>
+            <div class="testimonial-card">
+              <p>"Lo que más valoré fue la atención personalizada. Mi asesor conocía mi caso de memoria, me respondía al instante y me daba seguridad cuando yo dudaba. Esa confianza me llevó a la entrevista tranquilo y salí aprobado."</p>
+              <div class="testimonial-author"><div class="author-avatar">CR</div><div><strong>Carlos R.</strong><span>Monterrey · Visa B1/B2 aprobada</span></div></div>
+            </div>
+            <!-- Duplicated exactly for infinite loop -->
+            <div class="testimonial-card">
+              <p>"Jamás imaginé que el proceso pudiera ser tan fluido. Mi asesor me preparó para cada pregunta del cónsul. Llegué segura a la entrevista y en menos de 5 minutos me dieron la aprobación."</p>
+              <div class="testimonial-author"><div class="author-avatar">SP</div><div><strong>Sofía P.</strong><span>Tijuana · Visa B1/B2 aprobada</span></div></div>
+            </div>
+            <div class="testimonial-card">
+              <p>"Tenía miedo por mi historial laboral, pensé que me negarían. Mi asesor trabajó conmigo semanas antes de la cita, ajustando cada detalle. El día de la entrevista el cónsul aprobó sin dudar."</p>
+              <div class="testimonial-author"><div class="author-avatar">JM</div><div><strong>Jorge M.</strong><span>Hermosillo · Visa B1/B2 aprobada</span></div></div>
+            </div>
+            <div class="testimonial-card">
+              <p>"El trato humano marca la diferencia. Mi asesora no solo me orientó, me dio confianza cuando más lo necesitaba. Hoy tengo mi visa y ya estoy planeando mi viaje. No podría haber llegado sola hasta aquí."</p>
+              <div class="testimonial-author"><div class="author-avatar">AM</div><div><strong>Ana M.</strong><span>Puebla · Visa B1/B2 aprobada</span></div></div>
+            </div>
+            <div class="testimonial-card">
+              <p>"Llevaba dos rechazos previos y ya había perdido la esperanza. Mi asesor me escuchó con paciencia, entendió mi situación y me guió paso a paso. Gracias a su dedicación, me aprobaron la visa en mi tercera cita."</p>
+              <div class="testimonial-author"><div class="author-avatar">MR</div><div><strong>Miguel R.</strong><span>CDMX · Visa B1/B2 aprobada</span></div></div>
+            </div>
+            <div class="testimonial-card">
+              <p>"Estaba muy nerviosa y no sabía por dónde empezar. Mi asesora fue increíblemente amable, me explicó todo con calma y nunca me dejó sola en el proceso. Cuando el cónsul me aprobó, casi lloré de felicidad."</p>
+              <div class="testimonial-author"><div class="author-avatar">LG</div><div><strong>Laura G.</strong><span>Guadalajara · Visa B1/B2 aprobada</span></div></div>
+            </div>
+            <div class="testimonial-card">
+              <p>"Lo que más valoré fue la atención personalizada. Mi asesor conocía mi caso de memoria, me respondía al instante y me daba seguridad cuando yo dudaba. Esa confianza me llevó a la entrevista tranquilo y salí aprobado."</p>
+              <div class="testimonial-author"><div class="author-avatar">CR</div><div><strong>Carlos R.</strong><span>Monterrey · Visa B1/B2 aprobada</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer small -->
+    <footer style="padding: 32px 18px calc(16px + var(--safe-bottom)); border-top: 1px solid hsla(0,0%,100%,0.07); margin-top:40px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <img src="logo.png" alt="VisaLink" style="height:45px; opacity:0.8;">
+        <p style="font-size:0.72rem; color:hsla(0,0%,100%,0.35); text-align:right;">
+           2026 VisaLink. No afiliado a Embajada EE.UU.<br>
+          <a href="https://travel.state.gov" target="_blank" rel="noopener" style="color:hsla(224,76%,65%,0.8);">travel.state.gov</a>
+        </p>
+      </div>
+    </footer>
+
+  </div>
+</div>
+<!-- /tab-info -->
+
+
+<!-- WhatsApp Floating Button (only on non-mobile or scrollable tabs) -->
+<a href="https://wa.me/524271035773?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20VisaLink" target="_blank"
+    class="whatsapp-float" id="whatsapp-float" aria-label="Chat en WhatsApp"
+    style="bottom: calc(80px + var(--safe-bottom));">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+    <span class="wa-tooltip">¿Tienes dudas? Escríbenos</span>
+</a>
+
+<!-- Cookie Consent -->
+<div class="cookie-banner" id="cookie-banner" style="bottom: calc(76px + var(--safe-bottom));">
+    <div class="cookie-content">
+        <p>Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra <a href="#" id="cookie-privacy-link">Política de Privacidad</a>.</p>
+        <div class="cookie-btns">
+            <button class="cookie-accept" id="cookie-accept-btn" onclick="acceptCookies()">Aceptar</button>
+            <button class="cookie-reject" id="cookie-reject-btn" onclick="rejectCookies()">Solo esenciales</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Load scripts -->
+<script src="app.js"></script>
+<script>
+  // ── TAB SWITCHING ──
+  const TABS = ['inicio','semaforo','planes','faq','info'];
+
+  function showTab(id) {
+    TABS.forEach(t => {
+      const page = document.getElementById('tab-' + t);
+      const btn  = document.getElementById('tab-btn-' + t);
+      if (page) page.classList.toggle('active', t === id);
+      if (btn)  btn.classList.toggle('active', t === id);
+    });
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    // Re-init quiz if switching to semáforo
+    if (id === 'semaforo' && typeof initQuiz === 'function') {
+      // Only re-init if not mid-quiz
+      const card = document.getElementById('quiz-card');
+      if (card && card.style.display === 'none' && 
+          document.getElementById('quiz-result').style.display === 'none') {
+        initQuiz();
+      }
+    }
+  }
+
+  function setMobTab(el) {
+    document.querySelectorAll('.mob-nav-item').forEach(i => i.classList.remove('mob-nav-active'));
+    if (el) el.classList.add('mob-nav-active');
+  }
+</script>
+</body>
+</html>

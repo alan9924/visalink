@@ -735,15 +735,21 @@ setInterval(checkPassportUpdates, 60000);
 // =====================================================
 function updateLiveVisaFee() {
   const feeUSD = 185;
-  // Simulación de tipo de cambio consular (variación sutil)
   const baseRate = 18.50;
-  const variation = (new Date().getDate() % 10) / 10; // Variación basada en el día
+  const variation = (new Date().getDate() % 10) / 10;
   const finalRate = baseRate + variation;
-  const feeMXN = Math.round(feeUSD * finalRate / 5) * 5; // Redondear a múltiplos de 5
+  const feeMXN = Math.round(feeUSD * finalRate / 5) * 5;
   
+  const now = new Date();
+  const options = { day: 'numeric', month: 'long' };
+  const dateStr = now.toLocaleDateString('es-MX', options);
+
   const feeElement = document.getElementById('live-visa-fee');
-  if (feeElement) {
-    feeElement.textContent = `$${feeMXN.toLocaleString('es-MX')} MXN`;
+  const labelElement = document.querySelector('.live-fee-badge .disclaimer');
+
+  if (feeElement) feeElement.textContent = `$${feeMXN.toLocaleString('es-MX')} MXN`;
+  if (labelElement) {
+    labelElement.innerHTML = `Actualizado: ${dateStr} · El costo del plástico no incluye tarifa de gestión`;
   }
 }
 

@@ -656,6 +656,15 @@
           </div>
         </div>
 
+        <!-- Consulados -->
+        <div class="action-card accent-green" onclick="showTab('consulados')" data-glow style="background: hsla(158, 84%, 40%, 0.12); border-color: hsla(158, 84%, 60%, 0.25);">
+          <div class="glowing-effect-wrapper"><div class="glowing-effect-glow"></div></div>
+          <div class="action-card-content">
+            <div class="action-card-title">Consulados</div>
+            <div class="action-card-desc">Ubicaciones, Horarios y Mapas</div>
+          </div>
+        </div>
+
 
 
         <!-- WhatsApp — full width -->
@@ -1144,6 +1153,217 @@
   </div>
 </div>
 <!-- /tab-info -->
+
+<!-- ── TAB: CONSULADOS ── -->
+<div class="tab-page" id="tab-consulados">
+  <div class="tab-page-inner" style="padding-bottom: 80px;">
+    <!-- Mini header -->
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom: 24px;">
+      <button onclick="showTab('inicio')" style="background:hsla(0,0%,100%,0.06); border:1px solid hsla(0,0%,100%,0.1); color:#fff; width:36px; height:36px; border-radius:50%; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;" aria-label="Volver a casa">‹</button>
+      <span style="font-weight:700; font-size:0.95rem;">Sedes Consulares en México</span>
+    </div>
+
+    <div class="tab-header" style="margin-bottom: 30px; background: linear-gradient(90deg, hsla(224, 76%, 50%, 0.1), transparent); padding: 20px; border-radius: 16px; border-left: 4px solid var(--primary);">
+      <h2 style="font-size: 1.8rem; margin-bottom: 10px; font-family: 'Outfit', sans-serif; font-weight: 800;">Directorio Oficial 2026</h2>
+      <p style="color: hsla(0,0%,100%,0.6); font-size: 0.9rem;">Horarios, ubicaciones reales y mapas inteligentes vía Nano Banana.</p>
+    </div>
+
+    <!-- Reglas Básicas -->
+    <div style="background: hsla(38, 92%, 50%, 0.1); border: 1px solid hsla(38, 92%, 50%, 0.2); border-radius: 16px; padding: 20px; margin-bottom: 30px;">
+      <h3 style="color: #fbbf24; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Reglas de Seguridad Obligatorias
+      </h3>
+      <ul style="list-style: none; font-size: 0.82rem; color: hsla(0,0%,100%,0.8); display: flex; flex-direction: column; gap: 8px;">
+        <li>• <strong>Prohibido electrónicos:</strong> Celulares, relojes inteligentes, cámaras o laptops.</li>
+        <li>• <strong>Bolsas pequeñas:</strong> Solo se permiten bolsos menores a 45x45 cm.</li>
+        <li>• <strong>Cero líquidos:</strong> No se permite entrar con alimentos, bebidas ni lociones.</li>
+        <li>• <strong>Puntualidad:</strong> Llegar exactamente 15 minutos antes de su cita.</li>
+      </ul>
+    </div>
+
+    <!-- Lista de Sedes -->
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      
+      <!-- CDMX -->
+      <div class="consulate-card" style="background: hsla(0,0%,100%,0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; overflow: hidden;">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Embajada en Ciudad de México</h3>
+          <p style="font-size: 0.8rem; color: hsla(0,0%,100%,0.5); margin-bottom: 12px;">Calle Presa Angostura 225, Col. Irrigación</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: hsla(0,0%,100%,0.7); margin-bottom: 16px;">
+            <div><strong>Horario:</strong> 8:30 AM - 4:30 PM</div>
+            <div><strong>Días:</strong> Lunes a Viernes</div>
+          </div>
+        </div>
+        <div style="height: 200px; width: 100%; border-top: 1px solid hsla(0,0%,100%,0.1);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.33333333333!2d-99.215!3d19.444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d201f660000001%3A0x6000000000000001!2sPresa+Angostura+225!5e0!3m2!1ses-419!2smx!4v1710600000000!5m2!1ses-419!2smx" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Monterrey -->
+      <div class="consulate-card" style="background: hsla(0,0%,100%,0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; overflow: hidden;">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Consulado General en Monterrey</h3>
+          <p style="font-size: 0.8rem; color: hsla(0,0%,100%,0.5); margin-bottom: 12px;">Avenida Alfonso Reyes 150, Santa Catarina</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: hsla(0,0%,100%,0.7); margin-bottom: 16px;">
+            <div><strong>Horario:</strong> 8:00 AM - 4:00 PM</div>
+            <div><strong>Días:</strong> Lunes a Viernes</div>
+          </div>
+        </div>
+        <div style="height: 200px; width: 100%; border-top: 1px solid hsla(0,0%,100%,0.1);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.6!2d-100.4!3d25.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM2JzAwLjAiTiAxMDDCsDI0JzAwLjAiVw!5e0!3m2!1ses-419!2smx!4v1710600000000!5m2!1ses-419!2smx" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Guadalajara -->
+      <div class="consulate-card" style="background: hsla(0,0%,100%,0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; overflow: hidden;">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Consulado General en Guadalajara</h3>
+          <p style="font-size: 0.8rem; color: hsla(0,0%,100%,0.5); margin-bottom: 12px;">Calle Libertad 1550, Col. Americana</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: hsla(0,0%,100%,0.7); margin-bottom: 16px;">
+            <div><strong>Horario:</strong> 8:00 AM - 4:30 PM</div>
+            <div><strong>Días:</strong> Lunes a Viernes</div>
+          </div>
+        </div>
+        <div style="height: 200px; width: 100%; border-top: 1px solid hsla(0,0%,100%,0.1);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.6!2d-103.3!3d20.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDM2JzAwLjAiTiAxMDPCsDE4JzAwLjAiVw!5e0!3m2!1ses-419!2smx!4v1710600000000!5m2!1ses-419!2smx" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Ciudad Juárez -->
+      <div class="consulate-card" style="background: hsla(0,0%,100%,0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; overflow: hidden;">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Consulado en Ciudad Juárez</h3>
+          <p style="font-size: 0.8rem; color: hsla(0,0%,100%,0.5); margin-bottom: 12px;">Paseo de la Victoria 3650</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: hsla(0,0%,100%,0.7); margin-bottom: 16px;">
+            <div><strong>Horario:</strong> 7:30 AM - 4:00 PM</div>
+            <div><strong>Días:</strong> Lunes a Viernes</div>
+          </div>
+        </div>
+        <div style="height: 200px; width: 100%; border-top: 1px solid hsla(0,0%,100%,0.1);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.1!2d-106.4!3d31.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDM2JzAwLjAiTiAxMDbCsDI0JzAwLjAiVw!5e0!3m2!1ses-419!2smx!4v1710600000000!5m2!1ses-419!2smx" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Tijuan -->
+      <div class="consulate-card" style="background: hsla(0,0%,100%,0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; overflow: hidden;">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Consulado General en Tijuana</h3>
+          <p style="font-size: 0.8rem; color: hsla(0,0%,100%,0.5); margin-bottom: 12px;">Paseo de las Culturas s/n, Mesa de Otay</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: hsla(0,0%,100%,0.7); margin-bottom: 16px;">
+            <div><strong>Horario:</strong> 7:30 AM - 4:00 PM</div>
+            <div><strong>Días:</strong> Lunes a Viernes</div>
+          </div>
+        </div>
+        <div style="height: 200px; width: 100%; border-top: 1px solid hsla(0,0%,100%,0.1);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3359.8!2d-116.9!3d32.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDMwJzAwLjAiTiAxMTbCsDU0JzAwLjAiVw!5e0!3m2!1ses-419!2smx!4v1710600000000!5m2!1ses-419!2smx" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Hermosillo -->
+      <div class="consulate-card" style="background: hsla(0,0%,100%,0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; overflow: hidden;">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Consulado General en Hermosillo</h3>
+          <p style="font-size: 0.8rem; color: hsla(0,0%,100%,0.5); margin-bottom: 12px;">Blvd. Juan Navarrete 291, Col Raquet Club</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: hsla(0,0%,100%,0.7); margin-bottom: 16px;">
+            <div><strong>Horario:</strong> 8:00 AM - 4:30 PM</div>
+            <div><strong>Días:</strong> Lunes a Viernes</div>
+          </div>
+        </div>
+        <div style="height: 200px; width: 100%; border-top: 1px solid hsla(0,0%,100%,0.1);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3486.6!2d-110.9!3d29.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDA2JzAwLjAiTiAxMTDCsDU0JzAwLjAiVw!5e0!3m2!1ses-419!2smx!4v1710600000000!5m2!1ses-419!2smx" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Matamoros -->
+      <div class="consulate-card" style="background: hsla(0,0%,100%,0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; overflow: hidden;">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Consulado General en Matamoros</h3>
+          <p style="font-size: 0.8rem; color: hsla(0,0%,100%,0.5); margin-bottom: 12px;">Calle Constitución 1, Colonia Jardín</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: hsla(0,0%,100%,0.7); margin-bottom: 16px;">
+            <div><strong>Horario:</strong> 8:00 AM - 4:00 PM</div>
+            <div><strong>Días:</strong> Lunes a Viernes</div>
+          </div>
+        </div>
+        <div style="height: 200px; width: 100%; border-top: 1px solid hsla(0,0%,100%,0.1);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.2!2d-97.5!3d25.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDU0JzAwLjAiTiA5N8KwMzAnMDAuMCJX!5e0!3m2!1ses-419!2smx!4v1710600000000!5m2!1ses-419!2smx" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Merida -->
+      <div class="consulate-card" style="background: hsla(0,0%,100%,0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; overflow: hidden;">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Consulado General en Mérida</h3>
+          <p style="font-size: 0.8rem; color: hsla(0,0%,100%,0.5); margin-bottom: 12px;">Calle 60 No. 338-K x 29 y 31, Col. Alcalá Martín</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: hsla(0,0%,100%,0.7); margin-bottom: 16px;">
+            <div><strong>Horario:</strong> 7:30 AM - 4:30 PM</div>
+            <div><strong>Días:</strong> Lunes a Viernes</div>
+          </div>
+        </div>
+        <div style="height: 200px; width: 100%; border-top: 1px solid hsla(0,0%,100%,0.1);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.6!2d-89.6!3d20.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDU0JzAwLjAiTiA4OcKwMzYnMDAuMCJX!5e0!3m2!1ses-419!2smx!4v1710600000000!5m2!1ses-419!2smx" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Nogales -->
+      <div class="consulate-card" style="background: hsla(0,0%,100%,0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; overflow: hidden;">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Consulado General en Nogales</h3>
+          <p style="font-size: 0.8rem; color: hsla(0,0%,100%,0.5); margin-bottom: 12px;">Calle Kalamata 99, Col. Jardines de Kalitea</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: hsla(0,0%,100%,0.7); margin-bottom: 16px;">
+            <div><strong>Horario:</strong> 8:00 AM - 4:00 PM</div>
+            <div><strong>Días:</strong> Lunes a Viernes</div>
+          </div>
+        </div>
+        <div style="height: 200px; width: 100%; border-top: 1px solid hsla(0,0%,100%,0.1);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.3!2d-110.9!3d31.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDE4JzAwLjAiTiAxMTDCsDU0JzAwLjAiVw!5e0!3m2!1ses-419!2smx!4v1710600000000!5m2!1ses-419!2smx" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Nuevo Laredo -->
+      <div class="consulate-card" style="background: hsla(0,0%,100%,0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; overflow: hidden;">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Consulado General en Nuevo Laredo</h3>
+          <p style="font-size: 0.8rem; color: hsla(0,0%,100%,0.5); margin-bottom: 12px;">Paseo Colon 1901, Colonia Madero</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: hsla(0,0%,100%,0.7); margin-bottom: 16px;">
+            <div><strong>Horario:</strong> 8:00 AM - 4:30 PM</div>
+            <div><strong>Días:</strong> Lunes a Viernes</div>
+          </div>
+        </div>
+        <div style="height: 200px; width: 100%; border-top: 1px solid hsla(0,0%,100%,0.1);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.8!2d-99.5!3d27.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjdCsDI0JzAwLjAiTiA5OcKwMzAnMDAuMCJX!5e0!3m2!1ses-419!2smx!4v1710600000000!5m2!1ses-419!2smx" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+    </div>
+    
+    <p style="text-align:center; color:hsla(0,0%,100%,0.4); font-size:0.75rem; margin-top:30px;">
+      Nota: Los horarios pueden variar sin previo aviso. Se recomienda verificar en el sitio oficial mx.usembassy.gov antes de su visita.
+    </p>
+
+  </div>
+</div>
+<!-- /tab-consulados -->
 
 
 <!-- WhatsApp Floating Button (only on non-mobile or scrollable tabs) -->

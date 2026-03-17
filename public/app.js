@@ -42,7 +42,7 @@ async function shareContent(title, text, url) {
 }
 
 // Global Tab Management with Haptic
-const TABS = ['inicio', 'semaforo', 'planes', 'faq', 'info', 'pasaporte'];
+const TABS = ['inicio', 'semaforo', 'planes', 'faq', 'info', 'pasaporte', 'consulados'];
 
 function showTab(id) {
   triggerHaptic('light');

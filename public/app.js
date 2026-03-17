@@ -730,5 +730,23 @@ function handlePassportAction(vigencia, precio) {
 // Update every minute if the tab is potentially open
 setInterval(checkPassportUpdates, 60000);
 
+// =====================================================
+// 17. LIVE VISA FEE SIMULATION
+// =====================================================
+function updateLiveVisaFee() {
+  const feeUSD = 185;
+  // Simulación de tipo de cambio consular (variación sutil)
+  const baseRate = 18.50;
+  const variation = (new Date().getDate() % 10) / 10; // Variación basada en el día
+  const finalRate = baseRate + variation;
+  const feeMXN = Math.round(feeUSD * finalRate / 5) * 5; // Redondear a múltiplos de 5
+  
+  const feeElement = document.getElementById('live-visa-fee');
+  if (feeElement) {
+    feeElement.textContent = `$${feeMXN.toLocaleString('es-MX')} MXN`;
+  }
+}
+
 console.log('%cVisaLink 2026 – Loaded Successfully', 'color:#1a56db;font-size:16px;font-weight:bold;');
 checkPassportUpdates();
+updateLiveVisaFee();

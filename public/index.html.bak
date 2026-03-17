@@ -200,13 +200,12 @@
     }
 
     .live-fee-badge .disclaimer {
-      font-size: 0.65rem;
-      color: hsla(0, 0%, 100%, 0.32);
+      font-size: 0.6rem;
+      color: hsla(0, 0%, 100%, 0.25);
       font-weight: 500;
       display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 6px;
+      flex-direction: column;
+      gap: 1px;
     }
 
     .live-fee-badge .date-stamp {
@@ -222,100 +221,29 @@
       100% { opacity: 1; transform: scale(1); }
     }
 
-    /* Group Notice - Elegant & Notable */
-    .group-notice-box {
-      margin-top: 28px;
-      margin-bottom: 28px;
-      padding: 20px;
-      background: hsla(0, 0%, 100%, 0.03);
-      border: 1px solid hsla(0, 0%, 100%, 0.06);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-
-    .group-tag {
-      font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--primary-light);
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .group-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-
-    .group-desc {
-      font-size: 0.82rem;
-      color: hsla(0, 0%, 100%, 0.5);
-      line-height: 1.5;
-    }
-
-    .group-price-highlight {
-      color: #fff;
-      font-weight: 700;
-    }
-
-    /* Stats Row - Clean & Minimalist Redesign */
+    /* Stats Row */
     .home-stats {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 12px 0 24px;
-      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .home-stat {
-      flex: 1;
+      padding: 14px 10px;
       text-align: center;
-      position: relative;
-    }
-
-    .home-stat:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 15%;
-      height: 70%;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, hsla(0, 0%, 100%, 0.2), transparent);
     }
 
     .home-stat-num {
       font-family: 'Outfit', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 900;
+      font-size: 1.55rem;
+      font-weight: 800;
       color: #fff;
-      line-height: 1;
-      margin-bottom: 4px;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #fff 0%, var(--primary-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
     .home-stat-lbl {
-      font-size: 0.72rem;
-      color: hsla(0, 0%, 100%, 0.5);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .stats-disclaimer {
-      font-size: 0.68rem;
-      color: hsla(0, 0%, 100%, 0.35);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin: 32px 0 12px 4px;
+      font-size: 0.67rem;
+      color: hsla(0,0%,100%,0.5);
+      margin-top: 2px;
+      font-weight: 500;
     }
 
     /* ── QUICK ACTIONS GRID ── */
@@ -324,23 +252,13 @@
     }
 
     .actions-title {
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: hsla(0, 0%, 100%, 0.35);
-      margin: 32px 0 16px;
+      color: hsla(0,0%,100%,0.4);
+      margin-bottom: 16px;
       padding-left: 2px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .actions-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, hsla(0, 0%, 100%, 0.1), transparent);
     }
 
     .actions-grid {
@@ -733,13 +651,6 @@
       <h1>Tu puente seguro hacia <span>Estados Unidos.</span></h1>
       <p>Evita rechazos. Prepara tu DS-160 y entrevista consular con nuestra plataforma guiada.</p>
 
-      <!-- Información de Grupo - Notable & Elegant -->
-      <div class="group-notice-box">
-        <span class="group-tag">Información de Grupo</span>
-        <div class="group-title">Trámites Familiares o Colectivos</div>
-        <p class="group-desc">Se aplica un cargo de <span class="group-price-highlight">$600 MXN adicionales</span> por cada integrante extra al costo del paquete seleccionado.</p>
-      </div>
-
       <!-- Live Visa Fee Ticker - Minimalist -->
       <div class="live-fee-badge">
         <div class="status-row">
@@ -749,21 +660,20 @@
         <div class="value" id="live-visa-fee">$3,425 MXN</div>
         <div class="disclaimer">
           <span class="date-stamp" id="live-fee-date">Cargando fecha...</span>
+          <span>No incluye tarifa de gestión VisaLink</span>
         </div>
       </div>
 
-      <!-- Stats Section -->
-      <div class="stats-wrapper">
-        <div class="stats-disclaimer">No incluye tarifa de gestión VisaLink</div>
-        <div class="home-stats">
-          <div class="home-stat">
-            <div class="home-stat-num">94%</div>
-            <div class="home-stat-lbl">Tasa de éxito</div>
-          </div>
-          <div class="home-stat">
-            <div class="home-stat-num">12</div>
-            <div class="home-stat-lbl">Consulados</div>
-          </div>
+
+      <!-- Stats -->
+      <div class="home-stats">
+        <div class="home-stat">
+          <div class="home-stat-num">94%</div>
+          <div class="home-stat-lbl">Tasa de éxito</div>
+        </div>
+        <div class="home-stat">
+          <div class="home-stat-num">12</div>
+          <div class="home-stat-lbl">Consulados</div>
         </div>
       </div>
     </section>
@@ -1012,7 +922,13 @@
            </div>
 
         </div>
-
+        <div style="margin-top: 40px; text-align: center; border-top: 1px solid hsla(0,0%,100%,0.06); padding-top: 32px;">
+          <p style="font-size: 0.7rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--primary-light); margin-bottom: 12px;">Información de Grupo</p>
+          <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Trámites Familiares o Colectivos</h4>
+          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.85rem; max-width: 450px; margin: 0 auto; line-height: 1.6;">
+            Se aplica un cargo de <span style="color: #fff; font-weight: 700;">$600 MXN adicionales</span> por cada integrante extra al costo del paquete seleccionado.
+          </p>
+        </div>
         <p style="text-align:center; color:hsla(0,0%,100%,0.3); font-size:0.75rem; margin-top:24px; padding: 0 8px;">
           Todos los planes incluyen garantía de satisfacción. Pago seguro vía Stripe / MercadoPago.
         </p>

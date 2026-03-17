@@ -156,63 +156,78 @@
     .hero-btn-primary:active { transform: scale(0.96); }
     .hero-btn-secondary:active { background: hsla(0,0%,100%,0.06); }
 
-    /* Live Fee Badge */
+    /* Live Fee Badge - Minimalist & Elegant */
     .live-fee-badge {
-      background: hsla(224, 76%, 50%, 0.15);
-      border: 1px solid hsla(224, 76%, 65%, 0.2);
-      border-radius: 16px;
-      padding: 14px 18px;
-      margin-bottom: 28px;
-      position: relative;
-      overflow: hidden;
+      background: hsla(0, 0%, 100%, 0.03);
+      border: 1px solid hsla(0, 0%, 100%, 0.08);
+      border-radius: 24px;
+      padding: 16px 22px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       display: flex;
       flex-direction: column;
-      gap: 2px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      align-items: flex-start;
+      gap: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .live-fee-badge:hover {
+      background: hsla(0, 0%, 100%, 0.05);
+      border-color: hsla(0, 0%, 100%, 0.15);
+    }
+
+    .live-fee-badge .status-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .live-fee-badge .dot {
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
       background: #10b981;
       border-radius: 50%;
-      display: inline-block;
-      margin-right: 8px;
-      box-shadow: 0 0 10px #10b981;
+      box-shadow: 0 0 8px #10b981;
       animation: pulse-dot 2s infinite;
     }
 
-    @keyframes pulse-dot {
-      0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.3); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
     .live-fee-badge .label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: hsla(0, 0%, 100%, 0.5);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: hsla(0, 0%, 100%, 0.45);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      display: flex;
-      align-items: center;
+      letter-spacing: 0.1em;
     }
 
     .live-fee-badge .value {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.6rem;
-      font-weight: 900;
+      font-size: 1.8rem;
+      font-weight: 800;
       color: #fff;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
+      margin: 2px 0;
     }
 
     .live-fee-badge .disclaimer {
       font-size: 0.62rem;
-      color: hsla(0, 0%, 100%, 0.35);
+      color: hsla(0, 0%, 100%, 0.3);
       font-weight: 500;
-      margin-top: 4px;
-      line-height: 1.3;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .live-fee-badge .date-stamp {
+      color: var(--primary-light);
+      font-weight: 600;
+      font-size: 0.62rem;
+    }
+
+    @keyframes pulse-dot {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
     /* Stats Row */
@@ -645,11 +660,17 @@
       <h1>Tu puente seguro hacia <span>Estados Unidos.</span></h1>
       <p>Evita rechazos. Prepara tu DS-160 y entrevista consular con nuestra plataforma guiada.</p>
 
-      <!-- Live Visa Fee Ticker -->
+      <!-- Live Visa Fee Ticker - Minimalist -->
       <div class="live-fee-badge">
-        <div class="label" id="live-fee-label"><span class="dot"></span>Costo oficial del plástico (Derecho a Visa)</div>
+        <div class="status-row">
+          <span class="dot"></span>
+          <div class="label">Costo oficial del plástico (B1/B2)</div>
+        </div>
         <div class="value" id="live-visa-fee">$3,425 MXN</div>
-        <div class="disclaimer">Actualizado hoy · El costo del plástico no incluye tarifa de gestión</div>
+        <div class="disclaimer">
+          <span class="date-stamp" id="live-fee-date">Cargando fecha...</span>
+          <span>No incluye tarifa de gestión VisaLink</span>
+        </div>
       </div>
 
 

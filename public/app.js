@@ -741,15 +741,15 @@ function updateLiveVisaFee() {
   const feeMXN = Math.round(feeUSD * finalRate / 5) * 5;
   
   const now = new Date();
-  const options = { day: 'numeric', month: 'long' };
+  const options = { day: 'numeric', month: 'long', year: 'numeric' };
   const dateStr = now.toLocaleDateString('es-MX', options);
 
   const feeElement = document.getElementById('live-visa-fee');
-  const labelElement = document.querySelector('.live-fee-badge .disclaimer');
+  const dateElement = document.getElementById('live-fee-date');
 
   if (feeElement) feeElement.textContent = `$${feeMXN.toLocaleString('es-MX')} MXN`;
-  if (labelElement) {
-    labelElement.innerHTML = `Actualizado: ${dateStr} · El costo del plástico no incluye tarifa de gestión`;
+  if (dateElement) {
+    dateElement.textContent = `Actualizado: ${dateStr}`;
   }
 }
 

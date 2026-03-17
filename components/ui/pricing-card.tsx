@@ -27,8 +27,8 @@ interface PriceTier {
 }
 
 interface PricingComponentProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** The list of pricing tiers to display. Must contain exactly 3 tiers. */
-  plans: [PriceTier, PriceTier, PriceTier];
+  /** The list of pricing tiers to display. */
+  plans: PriceTier[];
   /** The currently selected billing cycle. */
   billingCycle: BillingCycle;
   /** Callback function when the user changes the billing cycle. */
@@ -277,58 +277,71 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
 
 
 
-const examplePlans: [PriceTier, PriceTier, PriceTier] = [
+const examplePlans: PriceTier[] = [
   {
-    id: 'starter',
-    name: 'Starter',
-    description: 'Perfect for new teams and small projects.',
-    priceMonthly: 19,
-    priceAnnually: 182, // ~15.17/mo (20% discount from $19)
+    id: 'basico',
+    name: 'Básico',
+    description: 'DS-160 + Agendar cita',
+    priceMonthly: 999,
+    priceAnnually: 999,
     isPopular: false,
-    buttonLabel: 'Start Free Trial',
+    buttonLabel: 'Contratar Básico',
     features: [
-      { name: '1 Project', isIncluded: true },
-      { name: 'Basic Analytics', isIncluded: true },
-      { name: 'Email Support', isIncluded: true },
-      { name: '10,000 API Calls', isIncluded: true },
-      { name: 'Custom Domains', isIncluded: false },
-      { name: 'Dedicated Account Manager', isIncluded: false },
+      { name: 'Llenado de formulario DS-160', isIncluded: true },
+      { name: 'Agendar cita', isIncluded: true },
+      { name: 'Escáner de aprobación', isIncluded: true },
+      { name: 'Diseño migratorio personalizado', isIncluded: true },
+      { name: 'Soporte WhatsApp', isIncluded: true },
+      { name: 'Revisión de errores', isIncluded: true },
+    ],
+  },
+  {
+    id: 'estandar',
+    name: 'Estándar',
+    description: 'Básico + Reserva de cita',
+    priceMonthly: 1449,
+    priceAnnually: 1449,
+    isPopular: false,
+    buttonLabel: 'Contratar Estándar',
+    features: [
+      { name: 'Todo lo del plan Básico', isIncluded: true },
+      { name: 'Reserva de cita consular', isIncluded: true },
+      { name: 'Gestión de documentos', isIncluded: true },
+      { name: 'Soporte WhatsApp', isIncluded: true },
+      { name: 'Guía de próximos pasos', isIncluded: true },
     ],
   },
   {
     id: 'pro',
     name: 'Pro',
-    description: 'Everything a growing business needs to succeed.',
-    priceMonthly: 49,
-    priceAnnually: 470, // ~39.17/mo (20% discount from $49)
+    description: 'Todo + Seguimiento premium',
+    priceMonthly: 2499,
+    priceAnnually: 2499,
     isPopular: true,
-    buttonLabel: 'Choose Pro',
+    buttonLabel: 'Contratar Pro',
     features: [
-      { name: 'Unlimited Projects', isIncluded: true },
-      { name: 'Advanced Analytics', isIncluded: true },
-      { name: 'Priority Chat Support', isIncluded: true },
-      { name: '500,000 API Calls', isIncluded: true },
-      { name: 'Custom Domains', isIncluded: true },
-      { name: 'SLAs and Uptime Guarantees', isIncluded: false },
+      { name: 'Todo lo del plan Estándar', isIncluded: true },
+      { name: 'Trámite de pasaporte incluido', isIncluded: true },
+      { name: 'Monitoreo de citas prontas', isIncluded: true },
+      { name: 'Seguimiento del proceso', isIncluded: true },
+      { name: 'Preparación de entrevista', isIncluded: true },
+      { name: 'Asesoría ilimitada', isIncluded: true },
     ],
   },
   {
-    id: 'enterprise',
-    name: 'Enterprise',
-    description: 'Advanced features and dedicated support for large organizations.',
-    priceMonthly: 199,
-    priceAnnually: 1910, // ~159.17/mo (20% discount from $199)
+    id: 'pasaporte',
+    name: 'Pasaporte',
+    description: 'Gestión de cita y requisitos',
+    priceMonthly: 249,
+    priceAnnually: 249,
     isPopular: false,
-    buttonLabel: 'Contact Sales',
+    buttonLabel: 'Contratar Pasaporte',
     features: [
-      { name: 'Unlimited Projects', isIncluded: true },
-      { name: 'Advanced Analytics', isIncluded: true },
-      { name: 'Priority Chat Support', isIncluded: true },
-      { name: '5,000,000 API Calls', isIncluded: true },
-      { name: 'Custom Domains', isIncluded: true },
-      { name: 'Dedicated Account Manager', isIncluded: true },
-      { name: 'SLAs and Uptime Guarantees', isIncluded: true },
-      { name: 'Single Sign-On (SSO)', isIncluded: true },
+      { name: 'Agendado de cita SRE', isIncluded: true },
+      { name: 'Generación línea de captura', isIncluded: true },
+      { name: 'Checklist de documentos', isIncluded: true },
+      { name: 'Soporte vía WhatsApp', isIncluded: true },
+      { name: 'Guía técnica de trámite', isIncluded: true },
     ],
   },
 ];

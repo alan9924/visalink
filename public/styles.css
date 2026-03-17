@@ -68,6 +68,21 @@ body {
   color: var(--white);
   line-height: 1.6;
   overflow-x: hidden;
+  /* Premium Mobile: Prevent pull-to-refresh rubber-banding if not needed, 
+     use swiping patterns common in native apps */
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Native Tap Selection Prevention */
+button, 
+.btn, 
+.nav-item, 
+.mob-nav-item, 
+.action-card {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 .container {
@@ -1934,13 +1949,16 @@ body {
 }
 
 .pricing-card.popular {
-  border-color: var(--primary);
-  background: linear-gradient(135deg, rgba(26, 86, 219, 0.12) 0%, var(--glass) 100%);
-  transform: scale(1.03);
+  border-color: var(--primary-light);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, hsla(225,25%,5%,0.6) 100%);
+  transform: scale(1.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 20px rgba(37, 99, 235, 0.2);
+  z-index: 2;
 }
 
 .pricing-card.popular:hover {
-  transform: scale(1.03) translateY(-8px);
+  transform: scale(1.05) translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(37, 99, 235, 0.3);
 }
 
 .pricing-card.premium {
@@ -2059,28 +2077,69 @@ body {
   line-height: 1.4;
 }
 
-.plan-cta {
+.btn-plan {
   display: block;
+  width: 100%;
+  padding: 18px 24px;
+  border-radius: 16px;
+  font-weight: 800;
+  font-size: 1rem;
   text-align: center;
-  padding: 15px 24px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: var(--transition);
   border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: var(--font-body);
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
 }
 
-.free-cta {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--white);
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
+.btn-plan-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
 }
 
-.free-cta:hover {
-  background: rgba(255, 255, 255, 0.2);
+.btn-plan-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.5);
+  filter: brightness(1.1);
+}
+
+.btn-plan-secondary {
+  background: hsla(0, 0%, 100%, 0.05);
+  color: #fff;
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+
+.btn-plan-secondary:hover {
+  background: hsla(0, 0%, 100%, 0.1);
+  border-color: hsla(0, 0%, 100%, 0.2);
+}
+
+/* Premium Shimmer Effect */
+.btn-shimmer::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
 }
 
 .popular-cta {
@@ -3047,17 +3106,143 @@ body {
   .btn-primary:hover { transform: none; }
   .btn-secondary:hover { transform: none; }
 
-  /* Snap tactile feedback */
-  .btn-primary:active { transform: scale(0.97); opacity: 0.88; }
-  .btn-secondary:active { transform: scale(0.97); opacity: 0.84; }
-  .quiz-option:active { border-color: var(--primary-light); background: rgba(26,86,219,0.18); transform: none; }
-  .faq-question:active { background: rgba(255,255,255,0.04); }
-  .mob-nav-item:active { opacity: 0.7; }
+  /* Snap tactile feedback - Premium App Feel */
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-plan:active,
+  .action-card:active,
+  .mob-nav-item:active {
+    transform: scale(0.96) !important;
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Prevent context menu on long press for UI icons */
+  img, svg {
+    pointer-events: none;
+    -webkit-touch-callout: none;
+  }
 
   /* Global tap highlight removal */
-  a, button, [onclick] {
+  a, button, [onclick], .action-card {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
   }
 }
 
+/* iOS Dynamic Safe Area for Notch and Home Indicator */
+@supports (padding: env(safe-area-inset-top)) {
+  .home-hero {
+    padding-top: calc(22px + env(safe-area-inset-top));
+  }
+  .mobile-bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+    height: calc(var(--tab-h) + env(safe-area-inset-bottom));
+  }
+}
+
+
+/* ── AI CHAT INTERFACE ── */
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: hsla(225, 25%, 8%, 0.5);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  mask-image: linear-gradient(to bottom, transparent, black 5%);
+}
+
+.message {
+  display: flex;
+  max-width: 85%;
+}
+
+.message.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.message.model {
+  align-self: flex-start;
+}
+
+.message-bubble {
+  padding: 12px 18px;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  position: relative;
+}
+
+.message.user .message-bubble {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.message.model .message-bubble {
+  background: hsla(0, 0%, 100%, 0.08);
+  color: #fff;
+  border-bottom-left-radius: 4px;
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+
+.chat-input-area {
+  padding: 16px;
+  background: hsla(225, 25%, 3%, 0.4);
+  border-top: 1px solid hsla(0, 0%, 100%, 0.08);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+#chat-input {
+  flex: 1;
+  background: hsla(0, 0%, 100%, 0.05);
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+  border-radius: 50px;
+  padding: 12px 20px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#chat-input:focus {
+  border-color: var(--primary-light);
+}
+
+#send-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+#send-btn:active {
+  transform: scale(0.9);
+}
+
+#send-btn svg {
+  width: 20px;
+  height: 20px;
+}

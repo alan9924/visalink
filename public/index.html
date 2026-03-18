@@ -222,46 +222,6 @@
       100% { opacity: 1; transform: scale(1); }
     }
 
-    /* Group Notice - Elegant & Notable */
-    .group-notice-box {
-      margin-top: 28px;
-      margin-bottom: 28px;
-      padding: 20px;
-      background: hsla(0, 0%, 100%, 0.03);
-      border: 1px solid hsla(0, 0%, 100%, 0.06);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-
-    .group-tag {
-      font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--primary-light);
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .group-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-
-    .group-desc {
-      font-size: 0.82rem;
-      color: hsla(0, 0%, 100%, 0.5);
-      line-height: 1.5;
-    }
-
-    .group-price-highlight {
-      color: #fff;
-      font-weight: 700;
-    }
-
     /* Stats Row - Clean & Minimalist Redesign */
     .home-stats {
       display: flex;
@@ -309,14 +269,6 @@
       letter-spacing: 0.04em;
     }
 
-    .stats-disclaimer {
-      font-size: 0.68rem;
-      color: hsla(0, 0%, 100%, 0.35);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin: 32px 0 12px 4px;
-    }
 
     /* ── QUICK ACTIONS GRID ── */
     .actions-section {
@@ -733,13 +685,6 @@
       <h1>Tu puente seguro hacia <span>Estados Unidos.</span></h1>
       <p>Evita rechazos. Prepara tu DS-160 y entrevista consular con nuestra plataforma guiada.</p>
 
-      <!-- Información de Grupo - Notable & Elegant -->
-      <div class="group-notice-box">
-        <span class="group-tag">Información de Grupo</span>
-        <div class="group-title">Trámites Familiares o Colectivos</div>
-        <p class="group-desc">Se aplica un cargo de <span class="group-price-highlight">$600 MXN adicionales</span> por cada integrante extra al costo del paquete seleccionado.</p>
-      </div>
-
       <!-- Live Visa Fee Ticker - Minimalist -->
       <div class="live-fee-badge">
         <div class="status-row">
@@ -754,7 +699,6 @@
 
       <!-- Stats Section -->
       <div class="stats-wrapper">
-        <div class="stats-disclaimer">No incluye tarifa de gestión VisaLink</div>
         <div class="home-stats">
           <div class="home-stat">
             <div class="home-stat-num">94%</div>
@@ -926,6 +870,14 @@
         <h2>Elige tu Plan</h2>
         <p>Sin contratos ocultos. Cancelación antes del primer contacto.</p>
       </div>
+
+      <!-- Info de Grupo - Elegante al inicio -->
+      <div style="background: hsla(0, 0%, 100%, 0.03); border: 1px solid hsla(0, 0%, 100%, 0.08); border-radius: 20px; padding: 18px 24px; margin: 0 18px 32px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+        <h4 style="font-size: 0.95rem; font-weight: 800; color: #fff; margin-bottom: 4px; font-family: 'Outfit', sans-serif;">Trámites Familiares o Colectivos</h4>
+        <p style="color: hsla(0,0%,100%,0.5); font-size: 0.8rem; line-height: 1.5; font-weight: 400;">
+          Se aplica un cargo de <span style="color: var(--primary-light); font-weight: 700;">$600 MXN adicionales</span> por cada integrante extra al costo del paquete seleccionado.
+        </p>
+      </div>
     </div>
     <!-- Pricing section pulled from styles -->
     <section class="pricing" id="precios" style="padding-top:0;">
@@ -1012,7 +964,7 @@
            </div>
 
         </div>
-
+        </div>
         <p style="text-align:center; color:hsla(0,0%,100%,0.3); font-size:0.75rem; margin-top:24px; padding: 0 8px;">
           Todos los planes incluyen garantía de satisfacción. Pago seguro vía Stripe / MercadoPago.
         </p>

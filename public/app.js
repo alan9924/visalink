@@ -536,7 +536,7 @@ function toggleProcessSteps() {
   
   if (!isOpen) {
     content.classList.add('open');
-    title.textContent = 'Ocultar los 9 pasos';
+    title.textContent = 'Ocultar pasos del proceso';
     btn.style.background = 'hsla(0, 0%, 100%, 0.08)';
     btn.style.borderColor = 'hsla(224, 76%, 65%, 0.4)';
     icon.style.transform = 'rotate(180deg)';
@@ -548,7 +548,7 @@ function toggleProcessSteps() {
     }, 100);
   } else {
     content.classList.remove('open');
-    title.textContent = 'Ver los 9 pasos del proceso';
+    title.textContent = 'Proceso para la obtención de visa';
     btn.style.background = 'hsla(0, 0%, 100%, 0.03)';
     btn.style.borderColor = 'hsla(0, 0%, 100%, 0.1)';
     icon.style.transform = 'rotate(0deg)';

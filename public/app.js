@@ -498,6 +498,58 @@ function toggleFaq(id) {
   }
 }
 
+function toggleWhyVisaLink() {
+  triggerHaptic('light');
+  const content = document.getElementById('why-visalink-content');
+  const btn = document.getElementById('why-visalink-btn');
+  const icon = document.getElementById('why-visalink-icon');
+  
+  if (content.style.display === 'none' || content.style.display === '') {
+    content.style.display = 'flex';
+    setTimeout(() => {
+      content.style.opacity = '1';
+    }, 10);
+    icon.style.transform = 'rotate(180deg)';
+    btn.style.background = 'hsla(0, 0%, 100%, 0.08)';
+    btn.style.borderColor = 'hsla(224, 76%, 65%, 0.4)';
+  } else {
+    content.style.opacity = '0';
+    setTimeout(() => {
+      content.style.display = 'none';
+    }, 400);
+    icon.style.transform = 'rotate(0deg)';
+    btn.style.background = 'hsla(0, 0%, 100%, 0.03)';
+    btn.style.borderColor = 'hsla(0, 0%, 100%, 0.1)';
+  }
+}
+
+function toggleProcessSteps() {
+  triggerHaptic('medium');
+  const content = document.getElementById('process-steps-content');
+  const btn = document.getElementById('unfold-process-btn');
+  
+  if (!content || !btn) return;
+  
+  const isOpen = content.classList.contains('open');
+  
+  if (!isOpen) {
+    content.classList.add('open');
+    btn.textContent = 'Ocultar los 8 pasos';
+    btn.classList.add('active');
+    
+    // Revelar items manualmente para evitar depender de scroll cuando está colapsado
+    setTimeout(() => {
+      document.querySelectorAll('#process-steps-content .step-item').forEach(el => {
+        el.classList.add('visible');
+      });
+    }, 100);
+  } else {
+    content.classList.remove('open');
+    btn.textContent = 'Ver los 8 pasos del proceso';
+    btn.classList.remove('active');
+  }
+}
+
 // =====================================================
 // 7. HERO FORM
 // =====================================================
@@ -750,26 +802,6 @@ function updateLiveVisaFee() {
   if (feeElement) feeElement.textContent = `$${feeMXN.toLocaleString('es-MX')} MXN`;
   if (dateElement) {
     dateElement.textContent = `Actualizado: ${dateStr}`;
-  }
-}
-
-function toggleProcessSteps() {
-  const container = document.getElementById('steps-container');
-  const btn = document.getElementById('toggle-steps-btn');
-  
-  const isHidden = container.style.maxHeight === '0px' || container.style.maxHeight === '0' || !container.style.maxHeight;
-  
-  if (isHidden) {
-    container.style.maxHeight = '2000px'; 
-    container.style.opacity = '1';
-    container.style.marginTop = '24px';
-    btn.innerHTML = `Ocultar pasos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px; transition: transform 0.4s ease; transform: rotate(180deg);"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
-    if (typeof triggerHaptic === 'function') triggerHaptic('light');
-  } else {
-    container.style.maxHeight = '0';
-    container.style.opacity = '0';
-    container.style.marginTop = '0';
-    btn.innerHTML = `Ver los 8 pasos detallados <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px; transition: transform 0.4s ease;"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
   }
 }
 

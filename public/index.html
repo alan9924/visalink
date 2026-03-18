@@ -216,6 +216,54 @@
       font-size: 0.6rem;
     }
 
+    /* Transparent Unfold Button */
+    .btn-unfold-steps {
+      background: hsla(0, 0%, 100%, 0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid hsla(0, 0%, 100%, 0.1);
+      padding: 14px 28px;
+      border-radius: 50px;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      margin: 24px auto 0;
+      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-unfold-steps:hover {
+      background: hsla(0, 0%, 100%, 0.08);
+      border-color: hsla(0, 0%, 100%, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn-unfold-steps.active {
+      background: var(--primary);
+      border-color: var(--primary-light);
+    }
+
+    .process-steps-collapsible {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .process-steps-collapsible.open {
+      max-height: 2500px;
+      opacity: 1;
+      transform: translateY(0);
+      margin-top: 48px;
+    }
+
     @keyframes pulse-dot {
       0% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.5; transform: scale(1.4); }
@@ -1169,72 +1217,61 @@
       </div>
     </div>
     
-    <!-- Sección: Por qué VisaLink (Minimalista) -->
-    <section style="padding: 64px 24px; max-width: 600px; margin: 0 auto;">
-      <div style="text-align: center; margin-bottom: 48px;">
-        <span style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.25em; color: var(--primary-light); opacity: 0.8; display: block; margin-bottom: 12px;">Metodología</span>
-        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; color: #fff; letter-spacing: -0.03em;">¿Por qué elegir VisaLink?</h2>
+    <!-- Sección: Por qué VisaLink (Toggleable) -->
+    <section style="padding: 40px 18px; max-width: 600px; margin: 0 auto;">
+      <button onclick="toggleWhyVisaLink()" id="why-visalink-btn" style="width: 100%; background: hsla(0, 0%, 100%, 0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; padding: 24px; color: #fff; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: all 0.3s ease; -webkit-tap-highlight-color: transparent;">
+        <span style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.25em; color: var(--primary-light); opacity: 0.8;">Metodología de Éxito</span>
+        <div style="display: flex; align-items: center; gap: 12px; justify-content: center; width: 100%;">
+          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; margin: 0;">¿Por qué elegir VisaLink?</h2>
+          <svg id="why-visalink-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-light); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+      </button>
+      
+      <div id="why-visalink-content" style="display: none; flex-direction: column; gap: 32px; margin-top: 32px; padding: 0 8px; animation: fadeInUp 0.4s ease forwards; opacity: 0;">
+        <div style="padding-left: 20px; border-left: 2px solid hsla(224, 76%, 65%, 0.3);">
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Seguridad Absoluta</h3>
+          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.88rem; line-height: 1.6; font-weight: 400;">Tratamos tu información con encriptación de nivel bancario. Privacidad total en cada etapa del proceso.</p>
+        </div>
+
+        <div style="padding-left: 20px; border-left: 2px solid hsla(224, 76%, 65%, 0.3);">
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Claridad Radical</h3>
+          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.88rem; line-height: 1.6; font-weight: 400;">Eliminamos la burocracia con guías directas y sencillas. Sabrás exactamente qué hacer sin complicaciones.</p>
+        </div>
+
+        <div style="padding-left: 20px; border-left: 2px solid hsla(224, 76%, 65%, 0.3);">
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Criterio Experto</h3>
+          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.88rem; line-height: 1.6; font-weight: 400;">Optimizamos tu perfil basándonos en criterios consulares reales. Estrategia personalizada para tu éxito.</p>
+        </div>
       </div>
       
-      <div style="display: flex; flex-direction: column; gap: 40px;">
-        <div style="padding-left: 24px; border-left: 1px solid hsla(0,0%,100%,0.1);">
-          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Seguridad Absoluta</h3>
-          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.9rem; line-height: 1.6; font-weight: 400;">Tratamos tu información con encriptación de nivel bancario. Privacidad total en cada etapa del proceso.</p>
-        </div>
+      <div style="text-align: center;">
+        <button id="unfold-process-btn" onclick="toggleProcessSteps()" class="btn-unfold-steps">
+          Ver los 8 pasos del proceso
+        </button>
+      </div>
 
-        <div style="padding-left: 24px; border-left: 1px solid hsla(0,0%,100%,0.1);">
-          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Claridad Radical</h3>
-          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.9rem; line-height: 1.6; font-weight: 400;">Eliminamos la burocracia con guías directas y sencillas. Sabrás exactamente qué hacer sin complicaciones.</p>
-        </div>
-
-        <div style="padding-left: 24px; border-left: 1px solid hsla(0,0%,100%,0.1);">
-          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Criterio Experto</h3>
-          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.9rem; line-height: 1.6; font-weight: 400;">Optimizamos tu perfil basándonos en criterios consulares reales. Estrategia personalizada para tu éxito.</p>
+      <!-- Steps Collapsible Section -->
+      <div id="process-steps-content" class="process-steps-collapsible">
+        <div class="steps-timeline" style="background: transparent;">
+          <div class="step-item"><span class="step-number">01</span><div class="step-content"><h3>Semáforo de Probabilidad</h3><p>Evaluamos tu perfil con criterios consulares reales en minutos.</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">02</span><div class="step-content"><h3>Diseño de Perfil</h3><p>Identificamos tus fortalezas y puntos a mejorar antes de aplicar.</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">03</span><div class="step-content"><h3>DS-160 Completo</h3><p>Llenamos el formulario oficial sin riesgo de errores fatales.</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">04</span><div class="step-content"><h3>Pago del MRV</h3><p>Te guiamos en el pago de la cuota en bancos autorizados ($185 USD).</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">05</span><div class="step-content"><h3>Programación de Cita</h3><p>Conseguimos el espacio más próximo en el consulado de tu ciudad.</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">06</span><div class="step-content"><h3>Preparación de Entrevista</h3><p>Simulaciones con preguntas reales del cónsul y análisis de respuestas.</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">07</span><div class="step-content"><h3>Día de la Entrevista</h3><p>Apoyo en tiempo real. Sabrás exactamente qué decir y cómo presentarte.</p></div></div>
+          <div class="step-connector"></div>
+          <div class="step-item"><span class="step-number">08</span><div class="step-content"><h3>Visa Aprobada</h3><p>Recibes tu pasaporte con la visa. ¡Es hora de viajar!</p></div></div>
         </div>
       </div>
     </section>
 
-
-
-    <!-- How it works -->
-    <section class="how-it-works" id="como-funciona">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">El proceso</span>
-          <h2 class="section-title">Metodología de Éxito</h2>
-          <p class="section-subtitle">Un camino estructurado hacia tu aprobación.</p>
-        </div>
-        
-        <!-- Toggle Switcher -->
-        <div style="text-align: center; margin-bottom: 32px;">
-          <button id="toggle-steps-btn" onclick="toggleProcessSteps()" style="background: hsla(0,0%,100%,0.05); border: 1px solid hsla(0,0%,100%,0.12); color: #fff; padding: 14px 28px; border-radius: 50px; cursor: pointer; font-size: 0.9rem; font-weight: 700; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: inline-flex; align-items: center; gap: 10px; letter-spacing: 0.02em; -webkit-tap-highlight-color: transparent;">
-            Ver los 8 pasos detallados
-            <svg id="toggle-steps-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px; transition: transform 0.4s ease;"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-        </div>
-
-        <!-- Hidden Steps Container -->
-        <div id="steps-container" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
-          <div class="steps-timeline">
-            <div class="step-item"><span class="step-number">01</span><div class="step-content"><h3>Semáforo de Probabilidad</h3><p>Evaluamos tu perfil con criterios consulares reales en minutos.</p></div></div>
-            <div class="step-connector"></div>
-            <div class="step-item"><span class="step-number">02</span><div class="step-content"><h3>Diseño de Perfil</h3><p>Identificamos tus fortalezas y puntos a mejorar antes de aplicar.</p></div></div>
-            <div class="step-connector"></div>
-            <div class="step-item"><span class="step-number">03</span><div class="step-content"><h3>DS-160 Completo</h3><p>Llenamos el formulario oficial sin riesgo de errores fatales.</p></div></div>
-            <div class="step-connector"></div>
-            <div class="step-item"><span class="step-number">04</span><div class="step-content"><h3>Pago del MRV</h3><p>Te guiamos en el pago de la cuota en bancos autorizados ($185 USD).</p></div></div>
-            <div class="step-connector"></div>
-            <div class="step-item"><span class="step-number">05</span><div class="step-content"><h3>Programación de Cita</h3><p>Conseguimos el espacio más próximo en el consulado de tu ciudad.</p></div></div>
-            <div class="step-connector"></div>
-            <div class="step-item"><span class="step-number">06</span><div class="step-content"><h3>Preparación de Entrevista</h3><p>Simulaciones con preguntas reales del cónsul y análisis de respuestas.</p></div></div>
-            <div class="step-connector"></div>
-            <div class="step-item"><span class="step-number">07</span><div class="step-content"><h3>Día de la Entrevista</h3><p>Apoyo en tiempo real. Sabrás exactamente qué decir y cómo presentarte.</p></div></div>
-            <div class="step-connector"></div>
-            <div class="step-item"><span class="step-number">08</span><div class="step-content"><h3>Visa Aprobada</h3><p>Recibes tu pasaporte con la visa. ¡Es hora de viajar!</p></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Testimonials preview -->
     <section class="testimonials" id="testimonios">

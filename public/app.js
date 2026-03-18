@@ -527,6 +527,8 @@ function toggleProcessSteps() {
   triggerHaptic('medium');
   const content = document.getElementById('process-steps-content');
   const btn = document.getElementById('unfold-process-btn');
+  const title = document.getElementById('unfold-process-title');
+  const icon = document.getElementById('unfold-process-icon');
   
   if (!content || !btn) return;
   
@@ -534,10 +536,11 @@ function toggleProcessSteps() {
   
   if (!isOpen) {
     content.classList.add('open');
-    btn.textContent = 'Ocultar los 8 pasos';
-    btn.classList.add('active');
+    title.textContent = 'Ocultar los 8 pasos';
+    btn.style.background = 'hsla(0, 0%, 100%, 0.08)';
+    btn.style.borderColor = 'hsla(224, 76%, 65%, 0.4)';
+    icon.style.transform = 'rotate(180deg)';
     
-    // Revelar items manualmente para evitar depender de scroll cuando está colapsado
     setTimeout(() => {
       document.querySelectorAll('#process-steps-content .step-item').forEach(el => {
         el.classList.add('visible');
@@ -545,8 +548,10 @@ function toggleProcessSteps() {
     }, 100);
   } else {
     content.classList.remove('open');
-    btn.textContent = 'Ver los 8 pasos del proceso';
-    btn.classList.remove('active');
+    title.textContent = 'Ver los 8 pasos del proceso';
+    btn.style.background = 'hsla(0, 0%, 100%, 0.03)';
+    btn.style.borderColor = 'hsla(0, 0%, 100%, 0.1)';
+    icon.style.transform = 'rotate(0deg)';
   }
 }
 

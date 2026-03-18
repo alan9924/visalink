@@ -753,6 +753,26 @@ function updateLiveVisaFee() {
   }
 }
 
+function toggleProcessSteps() {
+  const container = document.getElementById('steps-container');
+  const btn = document.getElementById('toggle-steps-btn');
+  
+  const isHidden = container.style.maxHeight === '0px' || container.style.maxHeight === '0' || !container.style.maxHeight;
+  
+  if (isHidden) {
+    container.style.maxHeight = '2000px'; 
+    container.style.opacity = '1';
+    container.style.marginTop = '24px';
+    btn.innerHTML = `Ocultar pasos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px; transition: transform 0.4s ease; transform: rotate(180deg);"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+    if (typeof triggerHaptic === 'function') triggerHaptic('light');
+  } else {
+    container.style.maxHeight = '0';
+    container.style.opacity = '0';
+    container.style.marginTop = '0';
+    btn.innerHTML = `Ver los 8 pasos detallados <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px; transition: transform 0.4s ease;"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+  }
+}
+
 console.log('%cVisaLink 2026 – Loaded Successfully', 'color:#1a56db;font-size:16px;font-weight:bold;');
 checkPassportUpdates();
 updateLiveVisaFee();

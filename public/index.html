@@ -1184,35 +1184,12 @@
       </div>
     </div>
     
-    <!-- Sección: Por qué VisaLink (Toggleable) -->
+    <!-- Sección: Proceso y Metodología (Toggleable) -->
     <section style="padding: 40px 18px; max-width: 600px; margin: 0 auto;">
-      <button onclick="toggleWhyVisaLink()" id="why-visalink-btn" style="width: 100%; background: hsla(0, 0%, 100%, 0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; padding: 24px; color: #fff; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: all 0.3s ease; -webkit-tap-highlight-color: transparent;">
-        <span style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.25em; color: var(--primary-light); opacity: 0.8;">Metodología de Éxito</span>
-        <div style="display: flex; align-items: center; gap: 12px; justify-content: center; width: 100%;">
-          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; margin: 0;">¿Por qué elegir VisaLink?</h2>
-          <svg id="why-visalink-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-light); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </div>
-      </button>
       
-      <div id="why-visalink-content" style="display: none; flex-direction: column; gap: 32px; margin-top: 32px; padding: 0 8px; animation: fadeInUp 0.4s ease forwards; opacity: 0;">
-        <div style="padding-left: 20px; border-left: 2px solid hsla(224, 76%, 65%, 0.3);">
-          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Seguridad Absoluta</h3>
-          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.88rem; line-height: 1.6; font-weight: 400;">Tratamos tu información con encriptación de nivel bancario. Privacidad total en cada etapa del proceso.</p>
-        </div>
-
-        <div style="padding-left: 20px; border-left: 2px solid hsla(224, 76%, 65%, 0.3);">
-          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Claridad Radical</h3>
-          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.88rem; line-height: 1.6; font-weight: 400;">Eliminamos la burocracia con guías directas y sencillas. Sabrás exactamente qué hacer sin complicaciones.</p>
-        </div>
-
-        <div style="padding-left: 20px; border-left: 2px solid hsla(224, 76%, 65%, 0.3);">
-          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Criterio Experto</h3>
-          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.88rem; line-height: 1.6; font-weight: 400;">Optimizamos tu perfil basándonos en criterios consulares reales. Estrategia personalizada para tu éxito.</p>
-        </div>
-      </div>
-      
+      <!-- 1. Los 8 pasos del proceso -->
       <div style="text-align: center;">
-        <button id="unfold-process-btn" onclick="toggleProcessSteps()" style="width: 100%; background: hsla(0, 0%, 100%, 0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; padding: 24px; color: #fff; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: all 0.3s ease; -webkit-tap-highlight-color: transparent; margin-top: 32px;">
+        <button id="unfold-process-btn" onclick="toggleProcessSteps()" style="width: 100%; background: hsla(0, 0%, 100%, 0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; padding: 24px; color: #fff; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: all 0.3s ease; -webkit-tap-highlight-color: transparent;">
           <span style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.25em; color: var(--primary-light); opacity: 0.8;">El proceso</span>
           <div style="display: flex; align-items: center; gap: 12px; justify-content: center; width: 100%;">
             <h2 id="unfold-process-title" style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; margin: 0;">Ver los 8 pasos del proceso</h2>
@@ -1239,6 +1216,32 @@
           <div class="step-item"><span class="step-number">07</span><div class="step-content"><h3>Día de la Entrevista</h3><p>Apoyo en tiempo real. Sabrás exactamente qué decir y cómo presentarte.</p></div></div>
           <div class="step-connector"></div>
           <div class="step-item"><span class="step-number">08</span><div class="step-content"><h3>Visa Aprobada</h3><p>Recibes tu pasaporte con la visa. ¡Es hora de viajar!</p></div></div>
+        </div>
+      </div>
+
+      <!-- 2. Por qué elegir VisaLink -->
+      <button onclick="toggleWhyVisaLink()" id="why-visalink-btn" style="width: 100%; background: hsla(0, 0%, 100%, 0.03); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 20px; padding: 24px; color: #fff; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: all 0.3s ease; -webkit-tap-highlight-color: transparent; margin-top: 32px;">
+        <span style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.25em; color: var(--primary-light); opacity: 0.8;">Metodología de Éxito</span>
+        <div style="display: flex; align-items: center; gap: 12px; justify-content: center; width: 100%;">
+          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; margin: 0;">¿Por qué elegir VisaLink?</h2>
+          <svg id="why-visalink-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-light); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+      </button>
+      
+      <div id="why-visalink-content" style="display: none; flex-direction: column; gap: 32px; margin-top: 32px; padding: 0 8px; animation: fadeInUp 0.4s ease forwards; opacity: 0;">
+        <div style="padding-left: 20px; border-left: 2px solid hsla(224, 76%, 65%, 0.3);">
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Seguridad Absoluta</h3>
+          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.88rem; line-height: 1.6; font-weight: 400;">Tratamos tu información con encriptación de nivel bancario. Privacidad total en cada etapa del proceso.</p>
+        </div>
+
+        <div style="padding-left: 20px; border-left: 2px solid hsla(224, 76%, 65%, 0.3);">
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Claridad Radical</h3>
+          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.88rem; line-height: 1.6; font-weight: 400;">Eliminamos la burocracia con guías directas y sencillas. Sabrás exactamente qué hacer sin complicaciones.</p>
+        </div>
+
+        <div style="padding-left: 20px; border-left: 2px solid hsla(224, 76%, 65%, 0.3);">
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Criterio Experto</h3>
+          <p style="color: hsla(0,0%,100%,0.5); font-size: 0.88rem; line-height: 1.6; font-weight: 400;">Optimizamos tu perfil basándonos en criterios consulares reales. Estrategia personalizada para tu éxito.</p>
         </div>
       </div>
     </section>

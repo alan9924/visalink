@@ -675,6 +675,122 @@
     }
     .sticky-cta-main:active { transform: scale(0.96); }
 
+    /* ── REWARDS BANNER ── */
+    .rewards-banner {
+      background: linear-gradient(135deg, hsla(224, 76%, 55%, 0.12) 0%, hsla(262, 60%, 55%, 0.12) 100%);
+      border: 1px solid hsla(0, 0%, 100%, 0.1);
+      border-radius: 24px;
+      padding: 24px;
+      margin: 10px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.2);
+    }
+
+    .rewards-banner::after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 80px;
+      height: 80px;
+      background: var(--primary);
+      filter: blur(40px);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .rewards-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .rewards-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: hsla(38, 92%, 50%, 0.2);
+      color: #fbbf24;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 12px;
+      border-radius: 50px;
+      border: 1px solid hsla(38, 92%, 50%, 0.3);
+    }
+
+    .rewards-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 6px;
+      background: linear-gradient(135deg, #fff 0%, var(--primary-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .rewards-desc {
+      font-size: 0.88rem;
+      color: hsla(0, 0%, 100%, 0.65);
+      line-height: 1.5;
+      max-width: 90%;
+    }
+
+    .rewards-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .rewards-value {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .rewards-amount {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .rewards-unit {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: hsla(0, 0%, 100%, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    .rewards-btn {
+      background: hsla(0, 0%, 100%, 0.1);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: 1px solid hsla(0, 0%, 100%, 0.1);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .rewards-btn:active {
+      background: hsla(0, 0%, 100%, 0.2);
+      transform: scale(0.95);
+    }
+
     @keyframes bounceInUp {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
@@ -695,7 +811,25 @@
     <section class="home-hero">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
         <img src="Photoroom_20260310_150953.PNG" alt="Visa USA 2026 Activo" class="logo-badge-img">
+      </div>
 
+      <!-- Plan de Recompensas -->
+      <div class="rewards-banner">
+        <div class="rewards-top">
+          <div class="rewards-badge">Programa de Embajadores</div>
+          <div style="font-size: 1.2rem;">🤝</div>
+        </div>
+        <div class="rewards-content">
+          <div class="rewards-title">Gana $150 por recomendar</div>
+          <div class="rewards-desc">¿No necesitas el servicio? ¡No importa! Recomiéndanos y recibe un bono por cada referido que contrate el **Plan Pro**.</div>
+        </div>
+        <div class="rewards-footer">
+          <div class="rewards-value">
+            <div class="rewards-amount">$150<span>MXN</span></div>
+            <div class="rewards-unit">Pago inmediato por recomendación</div>
+          </div>
+          <a href="https://wa.me/524271035773?text=Hola!%20Me%20interesa%20el%20Plan%20de%20Recompensas%20por%20recomendaci%C3%B3n." target="_blank" class="rewards-btn">Saber más</a>
+        </div>
       </div>
       <h1>Tu puente seguro hacia <span>Estados Unidos.</span></h1>
       <p>Evita rechazos. Prepara tu DS-160 y entrevista consular con nuestra plataforma guiada.</p>
@@ -904,19 +1038,18 @@
             <div class="plan-name">Básico</div>
             <div class="price-block">
               <span class="price-currency">$</span>
-              <span class="price-amount">999</span>
+              <span class="price-amount">318</span>
               <span class="price-period">MXN / único pago</span>
             </div>
-            <p class="plan-tagline">DS-160 + Agendar cita</p>
+            <p class="plan-tagline">Solo Diseño de Perfil</p>
             <ul class="plan-features">
-              <li><span class="feat-check"></span> Llenado de formulario DS-160</li>
-              <li><span class="feat-check"></span> Agendar cita</li>
-              <li><span class="feat-check"></span> Escáner de aprobación</li>
+              <li><span class="feat-check"></span> Análisis de perfil consular</li>
               <li><span class="feat-check"></span> Diseño migratorio personalizado</li>
-              <li><span class="feat-check"></span> Soporte WhatsApp</li>
-              <li><span class="feat-check"></span> Revisión de errores</li>
+              <li><span class="feat-check"></span> Escáner de puntos críticos</li>
+              <li><span class="feat-check"></span> Recomendaciones de arraigo</li>
+              <li><span class="feat-check"></span> Guía de preparación inicial</li>
             </ul>
-            <button class="btn-plan btn-plan-secondary" onclick="handlePurchase('Básico', 999)">Contratar Básico</button>
+            <button class="btn-plan btn-plan-secondary" onclick="handlePurchase('Básico', 318)">Contratar Básico</button>
           </div>
 
           <!-- Estándar -->

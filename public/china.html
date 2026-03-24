@@ -3,315 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>China Biz Gateway MX | Visa + CIIE 2026</title>
-    <meta name="description" content="Tu puerta de entrada a China: Gestión de Visa L y asesoría estratégica para la CIIE 2026 en Shanghai.">
+    <title>China Biz Gateway MX | Consultoría Estratégica</title>
+    <meta name="description" content="Gestoría de Visa China y acceso estratégico a la expo CIIE 2026 en Shanghai.">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Inter and Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;600;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary-red: #C0392B;
-            --secondary-gold: #D4AF37;
-            --bg-dark: #090b0e;
-            --text-light: #f5f5f5;
-            --accent-blue: #1A3A5C;
-            --card-bg: #13171f;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --safe-top: 10px;
+            --primary: #c41e3a; /* China Red (Muted/Classic) */
+            --gold: #d4af37;
+            --bg: #050505;
+            --surface: #0a0a0a;
+            --surface-accent: #111111;
+            --text-main: #ffffff;
+            --text-dim: #888888;
+            --border: rgba(255, 255, 255, 0.08);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
+            -webkit-font-smoothing: antialiased;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
+            background-color: var(--bg);
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            font-weight: 300;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-        }
-
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 32px;
         }
 
-        /* --- HERO SECTION (Principal Style) --- */
+        /* --- HERO SECTION --- */
         .hero {
             position: relative;
-            min-height: 90vh;
+            height: 95vh;
             display: flex;
             align-items: center;
-            padding: calc(40px + var(--safe-top)) 20px 60px;
             overflow: hidden;
-            background: linear-gradient(to bottom, transparent 0%, var(--bg-dark) 90%),
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)),
                         url('./shanghai-hero.png') no-repeat center center/cover;
         }
 
-        .hero-overlay {
+        .hero::after {
+            content: '';
             position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 70% 30%, rgba(192, 57, 43, 0.15) 0%, transparent 50%),
-                        rgba(9, 11, 14, 0.3);
-            z-index: 1;
+            bottom: 0; left: 0; right: 0;
+            height: 30vh;
+            background: linear-gradient(transparent, var(--bg));
         }
 
         .hero-content {
             position: relative;
             z-index: 10;
             max-width: 800px;
-            animation: fadeIn 1s ease-out;
+            animation: heroUp 1.2s ease forwards;
         }
 
-        .back-nav {
+        .back-link {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 32px;
             text-decoration: none;
-            color: #fff;
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        .back-btn {
-            background: hsla(0, 0%, 100%, 0.1);
-            border: 1px solid hsla(0, 0%, 100%, 0.15);
-            color: #fff;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
+            color: var(--text-main);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 48px;
+            opacity: 0.6;
             transition: var(--transition);
         }
+        .back-link:hover { opacity: 1; }
 
-        .back-btn:hover {
-            background: hsla(0, 0%, 100%, 0.2);
-            transform: scale(1.05);
-        }
-
-        .hero-badge {
+        .tagline {
             display: inline-block;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--secondary-gold);
-            font-weight: 800;
-            margin-bottom: 16px;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            margin-bottom: 24px;
+            font-weight: 600;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 9vw, 4.2rem);
-            line-height: 1.05;
-            letter-spacing: -0.04em;
-            margin-bottom: 20px;
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.8rem, 8vw, 5rem);
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+            margin-bottom: 24px;
             font-weight: 900;
         }
 
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--secondary-gold) 0%, #ff5e4d 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+        h1 span {
+            color: var(--primary);
+            font-weight: 300;
+            font-style: italic;
         }
 
         .hero p {
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
-            margin-bottom: 32px;
-            max-width: 550px;
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 500px;
+            margin-bottom: 40px;
         }
 
-        .btn {
+        .cta-btn {
             display: inline-flex;
-            align-items: center;
-            padding: 16px 36px;
-            font-size: 1.1rem;
-            font-weight: 800;
-            border-radius: 12px;
+            background: var(--primary);
+            color: white;
+            padding: 20px 48px;
+            border-radius: 1px; /* Formal sharp edges or minimal rounding */
             text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             transition: var(--transition);
-            cursor: pointer;
-            border: none;
+            border: 1px solid var(--primary);
+        }
+        .cta-btn:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        /* --- INFO SECTIONS --- */
+        section {
+            padding: 120px 0;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: block;
+            font-weight: 600;
+        }
+
+        h2 {
             font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            letter-spacing: -0.04em;
+            margin-bottom: 40px;
+            font-weight: 800;
         }
 
-        .btn-primary {
-            background-color: var(--primary-red);
-            color: #fff;
-            box-shadow: 0 8px 30px rgba(192, 57, 43, 0.3);
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background-color: #d84133;
-            box-shadow: 0 12px 40px rgba(192, 57, 43, 0.45);
+        /* Stats Cards */
+        .stat-item {
+            border-top: 1px solid var(--border);
+            padding-top: 32px;
+            transition: var(--transition);
+        }
+        .stat-item:hover {
+            border-color: var(--primary);
         }
 
-        /* --- MINIMALIST ICONS & SECTIONS --- */
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-header {
-            max-width: 600px;
-            margin-bottom: 48px;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
+        .stat-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
             margin-bottom: 12px;
+            background: linear-gradient(to bottom, #fff, #444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Packages */
+        .card {
+            background: var(--surface);
+            padding: 48px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+        .card:hover {
+            background: var(--surface-accent);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card.featured {
+            border-color: var(--gold);
+        }
+
+        .card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
             letter-spacing: -0.02em;
         }
 
-        .section-header p {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* --- STATS SECTION --- */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        .stats-card {
-            background: var(--card-bg);
-            padding: 32px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: var(--transition);
-        }
-
-        .stats-card:hover { border-color: var(--secondary-gold); }
-
-        .minimal-icon {
-            width: 48px; height: 48px;
-            background: rgba(192, 57, 43, 0.1);
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 20px;
-            color: var(--primary-red);
-        }
-
-        .stats-card .number {
+        .card .price {
+            font-family: 'Outfit', sans-serif;
             font-size: 2rem;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: 4px;
-            display: block;
+            color: var(--gold);
+            margin-bottom: 32px;
+            font-weight: 600;
         }
 
-        .stats-card p {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.95rem;
-        }
-
-        /* --- PACKAGES --- */
-        .pricing-card {
-            background: var(--card-bg);
-            padding: 32px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            display: flex; flex-direction: column;
-            position: relative;
-            transition: var(--transition);
-            overflow: hidden;
-        }
-
-        .pricing-card.popular {
-            border: 1px solid var(--secondary-gold);
-            background: linear-gradient(135deg, var(--card-bg), rgba(212, 175, 55, 0.05));
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: 20px; right: -30px;
-            background: var(--secondary-gold);
-            color: #000;
-            padding: 4px 40px;
-            transform: rotate(45deg);
-            font-weight: 900;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-        }
-
-        .price {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--secondary-gold);
-            margin: 16px 0;
-            display: flex; align-items: baseline; gap: 4px;
-        }
-
-        .price small { font-size: 0.8rem; opacity: 0.6; }
-
-        .pricing-card ul { list-style: none; margin-bottom: 32px; flex-grow: 1; }
-
-        .pricing-card li {
-            margin-bottom: 14px;
+        .card ul { list-style: none; margin-bottom: 40px; flex-grow: 1; }
+        .card li {
             font-size: 0.9rem;
-            display: flex; align-items: flex-start; gap: 10px;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-dim);
+            margin-bottom: 16px;
+            padding-left: 20px;
+            position: relative;
         }
-
-        .bullet {
-            width: 6px; height: 6px;
-            background: var(--primary-red);
+        .card li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 10px;
+            width: 4px; height: 4px;
+            background: var(--primary);
             border-radius: 50%;
-            margin-top: 8px;
-            flex-shrink: 0;
         }
 
-        .pricing-card li.excluded { color: rgba(255, 255, 255, 0.3); }
-        .pricing-card li.excluded .bullet { background: rgba(255, 255, 255, 0.2); }
+        .card .btn-small {
+            display: inline-block;
+            text-align: center;
+            padding: 16px 24px;
+            border: 1px solid var(--border);
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .card .btn-small:hover {
+            border-color: white;
+        }
 
-        /* --- WHY US --- */
-        .why-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 30px; }
-        .why-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.06); }
-
-        /* --- FAQ --- */
-        .faq-container { max-width: 800px; }
-        .faq-item { background: var(--card-bg); margin-bottom: 12px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.06); }
-        .faq-question { padding: 20px 24px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 700; align-items: center; }
-        .faq-answer { padding: 0 24px; max-height: 0; overflow: hidden; transition: 0.4s; color: rgba(255, 255, 255, 0.6); font-size: 0.95rem; }
-        .faq-item.active .faq-answer { padding-bottom: 24px; max-height: 200px; }
-        .chevron { width: 10px; height: 10px; border-right: 2px solid var(--secondary-gold); border-bottom: 2px solid var(--secondary-gold); transform: rotate(45deg); transition: 0.3s; }
-        .faq-item.active .chevron { transform: rotate(-135deg); }
+        /* FAQ */
+        .accordion-item {
+            border-bottom: 1px solid var(--border);
+        }
+        .accordion-header {
+            padding: 32px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            padding-bottom: 0;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 300px;
+            padding-bottom: 32px;
+        }
 
         /* --- FORM --- */
-        .form-section { background: linear-gradient(to bottom, var(--bg-dark), #0f141a); padding: 100px 0; }
-        .contact-card { background: var(--card-bg); padding: 40px; border-radius: 24px; max-width: 700px; margin: 0 auto; border: 1px solid rgba(255, 255, 255, 0.06); }
-        input, select { width: 100%; padding: 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; color: #fff; margin-bottom: 16px; }
-        input:focus { outline: none; border-color: var(--secondary-gold); }
+        .form-wrap {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input, select {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            margin-bottom: 40px;
+            transition: var(--transition);
+        }
+        input:focus {
+            outline: none;
+            border-bottom-color: var(--primary);
+        }
 
-        footer { padding: 60px 20px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); }
+        footer {
+            padding: 100px 0 40px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+        }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        /* --- REVEAL ANIMATIONS --- */
+        @keyframes heroUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         @media (max-width: 768px) {
-            .hero { min-height: 70vh; padding-top: 60px; }
-            .hero h1 { font-size: 2.8rem; }
-            .grid-3 { grid-template-columns: 1fr; }
-            .pricing-card.popular { transform: none; }
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.2rem; }
+            section { padding: 80px 0; }
         }
     </style>
 </head>
@@ -319,176 +349,127 @@
 
     <!-- HERO -->
     <header class="hero">
-        <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <a href="index.html" class="back-nav">
-                <div class="back-btn">‹</div>
-                Regresar
+            <a href="index.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Inicio
             </a>
-            <span class="hero-badge">Expertos en Negocios con China</span>
-            <h1>Tu puerta a la <br><span>Industria China</span></h1>
-            <p>Gestión de Visa L + Acceso estratégico a la CIIE 2026 en Shanghai. Tú concéntrate en los negocios, nosotros en la logística.</p>
-            <a href="#contacto" class="btn btn-primary">Empezar ahora</a>
+            <span class="tagline">Estrategia & Consultoría B2B</span>
+            <h1>Puerta de Entrada <br><span>a China</span></h1>
+            <p>Navegamos la complejidad administrativa para que usted se enfoque en la oportunidad comercial.</p>
+            <a href="#contacto" class="cta-btn">Consultar Diagnóstico</a>
         </div>
     </header>
 
-    <!-- CIIE INFO -->
-    <section class="section">
+    <!-- STATS -->
+    <section>
         <div class="container">
-            <div class="section-header">
-                <h2>CIIE: La ventana al mercado asiático</h2>
-                <p>La <strong>China International Import Expo (CIIE)</strong> no es una feria comercial cualquiera; es el evento de importación más grande de China y el mundo. Celebrado anualmente en el Centro Nacional de Exposiciones y Convenciones de Shanghai, es el punto de encuentro donde el gobierno chino abre sus puertas a proveedores globales para satisfacer la demanda de consumo interno de más de 1,400 millones de personas.</p>
-                <p style="margin-top: 15px; font-size: 0.95rem; color: rgba(255,255,255,0.5);">Para empresarios mexicanos, el CIIE 2026 representa la oportunidad definitiva de encontrar proveedores directos, conocer tecnologías de vanguardia en manufactura y establecer alianzas estratégicas sin intermediarios.</p>
+            <span class="section-label">Oportunidad Global</span>
+            <h2>El mercado del futuro, hoy.</h2>
+            <div class="grid">
+                <div class="stat-item reveal">
+                    <div class="stat-num">+150</div>
+                    <div class="stat-label">Países Participantes</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-num">+3M</div>
+                    <div class="stat-label">Expositores CIIE</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-num">∞</div>
+                    <div class="stat-label">Potencial de Negocio</div>
+                </div>
             </div>
-            <div class="grid-3">
-                <div class="stats-card">
-                    <div class="minimal-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20"/></svg>
-                    </div>
-                    <span class="number">+150</span>
-                    <p>Países participando activamente</p>
-                </div>
-                <div class="stats-card">
-                    <div class="minimal-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6" y2="6"/><line x1="6" y1="18" x2="6" y2="18"/></svg>
-                    </div>
-                    <span class="number">+3,000</span>
-                    <p>Expositores internacionales</p>
-                </div>
-                <div class="stats-card">
-                    <div class="minimal-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    </div>
-                    <span class="number">Billones</span>
-                    <p>Volumen de negocios anual</p>
-                </div>
+            <div style="margin-top: 80px; max-width: 800px;">
+                <p style="font-size: 1.1rem; color: var(--text-main); font-weight: 500;">La China International Import Expo (CIIE 2026) es la plataforma de importación más grande del mundo.</p>
+                <p style="margin-top: 24px; color: var(--text-dim);">No es simplemente una feria; es la declaración de apertura comercial de China al mundo. Un espacio donde se cierran contratos multimillonarios y se definen las tendencias del próximo lustro en Asia.</p>
             </div>
         </div>
     </section>
 
     <!-- PACKAGES -->
-    <section class="section" style="background: rgba(255,255,255,0.01);">
+    <section style="background: var(--surface);">
         <div class="container">
-            <div class="section-header">
-                <h2>Nuestros Servicios</h2>
-                <p>Soluciones integrales para el sector corporativo mexicano.</p>
-            </div>
-            <div class="grid-3">
-                <div class="pricing-card">
+            <span class="section-label">Servicios</span>
+            <h2>Gestión Integral</h2>
+            <div class="grid">
+                <div class="card reveal">
                     <h3>Visa China (L)</h3>
-                    <div class="price">3,500 <small>MXN</small></div>
+                    <div class="price">$3,500 <small>MXN</small></div>
                     <ul>
-                        <li><span class="bullet"></span> Evaluación de perfil</li>
-                        <li><span class="bullet"></span> Llenado COVA</li>
-                        <li><span class="bullet"></span> Itinerario oficial</li>
-                        <li><span class="bullet"></span> Carta de justificación</li>
-                        <li class="excluded"><span class="bullet"></span> Tasas consulares</li>
+                        <li>Armado de expediente completo</li>
+                        <li>Gestión documental COVA</li>
+                        <li>Protocolo institucional</li>
+                        <li>Soporte continuo</li>
                     </ul>
-                    <a href="#contacto" class="btn" style="background: hsla(0,0%,100%,0.05); color: #fff;">Consultar</a>
+                    <a href="#contacto" class="btn-small">Solicitar</a>
                 </div>
-
-                <div class="pricing-card popular">
-                    <div class="popular-badge">Recomendado</div>
+                <div class="card featured reveal">
                     <h3>Visa + CIIE Full</h3>
-                    <div class="price">7,000 <small>MXN</small></div>
+                    <div class="price">$7,000 <small>MXN</small></div>
                     <ul>
-                        <li><span class="bullet"></span> <strong>Todo el paquete Visa</strong></li>
-                        <li><span class="bullet"></span> Registro Visitante CIIE</li>
-                        <li><span class="bullet"></span> Sesión estratégica Zoom</li>
-                        <li><span class="bullet"></span> Kit Digital en español</li>
-                        <li><span class="bullet"></span> Soporte Premium vía WhatsApp</li>
+                        <li><strong>Todo el paquete de Visa</strong></li>
+                        <li>Registro profesional CIIE</li>
+                        <li>Sesión estratégica prepandémica</li>
+                        <li>Kit de negocios digital</li>
                     </ul>
-                    <a href="#contacto" class="btn btn-primary">Reservar ahora</a>
+                    <a href="#contacto" class="btn-small" style="background: var(--gold); color: black; border-color: var(--gold);">Reservar</a>
                 </div>
-
-                <div class="pricing-card">
-                    <h3>Acceso CIIE</h3>
-                    <div class="price">4,500 <small>MXN</small></div>
+                <div class="card reveal">
+                    <h3>Gestión CIIE</h3>
+                    <div class="price">$4,500 <small>MXN</small></div>
                     <ul>
-                        <li><span class="bullet"></span> Registro oficial visitante</li>
-                        <li><span class="bullet"></span> Orientación por sectores</li>
-                        <li><span class="bullet"></span> Guía de networking</li>
-                        <li><span class="bullet"></span> Kit Digital completo</li>
+                        <li>Acreditación de visitante</li>
+                        <li>Mapping industrial</li>
+                        <li>Guía de networking</li>
+                        <li>Soporte estratégico</li>
                     </ul>
-                    <a href="#contacto" class="btn" style="background: hsla(0,0%,100%,0.05); color: #fff;">Consultar</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY US -->
-    <section class="section">
-        <div class="container">
-            <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                <div class="why-card">
-                    <div class="minimal-icon" style="background:hsla(38, 92%, 50%, 0.1); color:var(--secondary-gold);">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3-3.5 3.5z"/></svg>
-                    </div>
-                    <h4>Especialistas Certificados</h4>
-                    <p>Expertos en procesos binacionales México-China.</p>
-                </div>
-                <div class="why-card">
-                    <div class="minimal-icon" style="background:hsla(158, 84%, 40%, 0.1); color:#10b981;">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <h4>Proceso 100% Digital</h4>
-                    <p>Gestión eficiente y transparente sin complicaciones.</p>
-                </div>
-                <div class="why-card">
-                    <div class="minimal-icon" style="background:hsla(224, 76%, 48%, 0.1); color:var(--accent-blue);">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </div>
-                    <h4>Asesoría Estratégica</h4>
-                    <p>Analizamos tu giro para maximizar tu red de contactos.</p>
+                    <a href="#contacto" class="btn-small">Solicitar</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section">
+    <section>
         <div class="container">
-            <div class="section-header">
-                <h2>Dudas Frecuentes</h2>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">¿Garantizan la aprobación de la visa? <span class="chevron"></span></div>
-                    <div class="faq-answer">La aprobación depende del Consulado Chino. Nosotros aseguramos que tu expediente cumpla con todos los requisitos para maximizar las posibilidades.</div>
+            <span class="section-label">Transparencia</span>
+            <h2>Dudas Técnicas</h2>
+            <div class="form-wrap">
+                <div class="accordion-item reveal">
+                    <div class="accordion-header">¿Garantizan la aprobación? <span>+</span></div>
+                    <div class="accordion-content">La decisión final reside en el Consulado. Nuestra labor es garantizar que su expediente no tenga fisuras ni errores que motiven un rechazo.</div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">¿Incluye traslados y hoteles? <span class="chevron"></span></div>
-                    <div class="faq-answer">No. Nuestro servicio es de consultoría documental y acceso profesional. Tú gestionas tus vuelos y estancia.</div>
+                <div class="accordion-item reveal">
+                    <div class="accordion-header">¿Incluye logística de viaje? <span>+</span></div>
+                    <div class="accordion-content">No. Somos una consultora de procesos. Usted mantiene total control sobre sus vuelos y hospedaje.</div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">¿Qué vigencia tiene la visa? <span class="chevron"></span></div>
-                    <div class="faq-answer">La vigencia la determina el consulado, usualmente otorgan visas por 10 años para ciudadanos mexicanos.</div>
+                <div class="accordion-item reveal">
+                    <div class="accordion-header">¿Qué vigencia tiene la visa? <span>+</span></div>
+                    <div class="accordion-content">Típicamente el consulado otorga visas de múltiples entradas con vigencia de 10 años para ciudadanos mexicanos.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT FORM -->
-    <section id="contacto" class="form-section">
+    <!-- FORM -->
+    <section id="contacto" style="background: #000;">
         <div class="container">
-            <div class="contact-card">
-                <div class="section-header">
-                    <h2>Solicitar Información</h2>
-                    <p>Recibe una asesoría de 15 minutos sin costo.</p>
-                </div>
+            <div class="form-wrap">
+                <span class="section-label">Contacto</span>
+                <h2 style="font-size: 2.22rem; margin-bottom: 80px;">Agende su sesión estratégica inicial.</h2>
                 <form id="chinaForm">
-                    <input type="text" placeholder="Nombre completo" required>
-                    <input type="tel" placeholder="WhatsApp (Ej. 442 123 4567)" required>
-                    <input type="email" placeholder="Email corporativo" required>
+                    <input type="text" placeholder="NOMBRE COMPLETO" required>
+                    <input type="tel" placeholder="WHATSAPP DE CONTACTO" required>
+                    <input type="email" placeholder="CORREO CORPORATIVO" required>
                     <select required>
-                        <option value="">Giro de Negocio</option>
-                        <option>Importaciones</option>
-                        <option>Venta Online / Retail</option>
-                        <option>Industria / Manufactura</option>
-                        <option>Otro</option>
+                        <option value="">GIRO DE NEGOCIO</option>
+                        <option>Importación / Exportación</option>
+                        <option>Ecommerce</option>
+                        <option>Industria</option>
+                        <option>Retail</option>
                     </select>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Enviar Solicitud</button>
-                    <p style="text-align: center; margin-top: 20px; font-size: 0.8rem; opacity: 0.5;">Contacto garantizado en menos de 24 horas.</p>
+                    <button type="submit" class="cta-btn" style="width:100%; text-align:center;">Enviar Solicitud</button>
                 </form>
             </div>
         </div>
@@ -496,20 +477,32 @@
 
     <footer>
         <div class="container">
-            <p>© 2026 China Biz Gateway MX | Querétaro, México. <br> Consultoría estratégica para comercio exterior México-China.</p>
+            <p>CHINA BIZ GATEWAY MX &copy; 2026 | QUERÉTARO, MÉXICO</p>
+            <p style="margin-top: 10px; opacity: 0.3;">CONSULTORÍA PRIVADA. SIN FILIACIÓN GUBERNAMENTAL.</p>
         </div>
     </footer>
 
     <script>
+        // Reveal Effect
+        const reveals = document.querySelectorAll('.reveal');
+        const reveal = () => {
+            reveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) el.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        reveal();
+
         // FAQ
-        document.querySelectorAll('.faq-question').forEach(q => {
-            q.onclick = () => q.parentElement.classList.toggle('active');
+        document.querySelectorAll('.accordion-header').forEach(h => {
+            h.onclick = () => h.parentElement.classList.toggle('active');
         });
 
         // Form
         document.getElementById('chinaForm').onsubmit = (e) => {
             e.preventDefault();
-            alert('¡Gracias! Te contactaremos a la brevedad por WhatsApp.');
+            alert('Recibido. Un consultor se comunicará con usted en menos de 12 horas.');
             e.target.reset();
         };
     </script>

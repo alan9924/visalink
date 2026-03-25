@@ -445,15 +445,23 @@ function showResult() {
   answers.forEach((ans, idx) => {
     const factorItem = document.createElement('div');
     factorItem.className = 'factor-detail-item';
+    const iconName = ans.weight >= 8 ? 'check-circle' : ans.weight >= 4 ? 'alert-circle' : 'x-circle';
+    const iconColor = ans.weight >= 8 ? '#10b981' : ans.weight >= 4 ? '#f59e0b' : '#ef4444';
+    
     factorItem.innerHTML = `
-      <div class="factor-header">
-        <span class="factor-dot ${ans.weight >= 8 ? 'dot-green' : ans.weight >= 4 ? 'dot-yellow' : 'dot-red'}"></span>
-        <strong>${factorLabels[idx]}</strong>
+      <div class="factor-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+        <i data-lucide="${iconName}" style="width: 18px; height: 18px; color: ${iconColor};"></i>
+        <strong style="font-size: 0.95rem; color: #fff;">${factorLabels[idx]}</strong>
       </div>
-      <p class="factor-feedback">${ans.feedback}</p>
+      <p class="factor-feedback" style="font-size: 0.85rem; color: hsla(0,0%,100%,0.6); line-height: 1.5; padding-left: 28px;">${ans.feedback}</p>
     `;
     factorsGrid.appendChild(factorItem);
   });
+
+  // Re-initialize Lucide for the newly injected icons
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 }
 
 function restartQuiz() {

@@ -78,7 +78,6 @@ body {
 button, 
 .btn, 
 .nav-item, 
-.mob-nav-item, 
 .action-card {
   user-select: none;
   -webkit-user-select: none;
@@ -2666,14 +2665,6 @@ button,
   .pricing-card.popular:hover { transform: translateY(-8px); }
 }
 
-/* ============================================================
-   MOBILE BOTTOM NAVIGATION BAR (iOS / Android)
-   ============================================================ */
-
-/* Hidden by default — only shown on mobile */
-.mobile-bottom-nav {
-  display: none;
-}
 
 @media (max-width: 768px) {
 
@@ -2683,130 +2674,22 @@ button,
     --safe-bottom: env(safe-area-inset-bottom, 0px);
   }
 
-  /* Space for the bottom nav bar */
-  body {
-    padding-bottom: calc(66px + var(--safe-bottom)) !important;
-  }
-
-  /* WhatsApp float sits above bottom nav */
+  /* WhatsApp float */
   .whatsapp-float {
-    bottom: calc(82px + var(--safe-bottom));
+    bottom: calc(24px + var(--safe-bottom));
     right: 16px;
     width: 50px;
     height: 50px;
   }
 
-  /* Cookie banner above bottom nav */
+  /* Cookie banner */
   .cookie-banner {
     left: 12px;
     right: 12px;
-    bottom: calc(76px + var(--safe-bottom));
+    bottom: calc(16px + var(--safe-bottom));
     max-width: none;
     border-radius: var(--radius);
     padding: 16px;
-  }
-
-  /* ---------- BOTTOM NAV BAR ---------- */
-  .mobile-bottom-nav {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1100;
-    background: hsla(225, 25%, 5%, 0.97);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-top: 1px solid hsla(0, 0%, 100%, 0.07);
-    padding-bottom: var(--safe-bottom);
-    box-shadow: 0 -6px 32px hsla(224, 76%, 50%, 0.14);
-    align-items: stretch;
-    height: calc(64px + var(--safe-bottom));
-  }
-
-  .mob-nav-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    text-decoration: none;
-    color: hsla(0, 0%, 100%, 0.42);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    padding: 10px 4px;
-    transition: color 0.2s ease;
-    min-height: 44px;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    position: relative;
-  }
-
-  .mob-nav-item.mob-nav-active {
-    color: var(--primary-light);
-  }
-
-  .mob-nav-icon {
-    width: 22px;
-    height: 22px;
-    stroke: hsla(0, 0%, 100%, 0.42);
-    transition: stroke 0.2s ease, filter 0.2s ease;
-    flex-shrink: 0;
-  }
-
-  .mob-nav-item.mob-nav-active .mob-nav-icon {
-    stroke: var(--primary-light);
-    filter: drop-shadow(0 0 6px hsla(224, 76%, 65%, 0.6));
-  }
-
-  /* Active top indicator line */
-  .mob-nav-item.mob-nav-active::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 28px;
-    height: 3px;
-    background: var(--primary-light);
-    border-radius: 0 0 4px 4px;
-    box-shadow: 0 2px 8px hsla(224, 76%, 65%, 0.5);
-  }
-
-  /* Center button: raised CTA pill */
-  .mob-nav-cta-center {
-    color: var(--white);
-  }
-
-  .mob-nav-cta-center::before {
-    display: none !important;
-  }
-
-  .mob-nav-cta-pill {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: -18px;
-    box-shadow: 0 4px 20px hsla(224, 76%, 55%, 0.55),
-                0 0 0 4px hsla(225, 25%, 5%, 0.97);
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-  }
-
-  .mob-nav-cta-center:active .mob-nav-cta-pill {
-    transform: scale(0.91);
-    box-shadow: 0 2px 10px hsla(224, 76%, 55%, 0.4),
-                0 0 0 4px hsla(225, 25%, 5%, 0.97);
-  }
-
-  .mob-nav-cta-pill .mob-nav-icon {
-    stroke: var(--white);
-    width: 20px;
-    height: 20px;
-    filter: none;
   }
 
   /* ---------- NAVBAR ---------- */
@@ -3068,8 +2951,8 @@ button,
   }
 
   .stat-number { font-size: 1.35rem; }
-  .mob-nav-item span { font-size: 0.58rem; }
 }
+
 
 /* ---- Landscape phones ---- */
 @media (max-width: 768px) and (orientation: landscape) {
@@ -3082,9 +2965,8 @@ button,
   .hero-title { font-size: 1.7rem; margin-bottom: 10px; }
   .hero-subtitle { font-size: 0.88rem; margin-bottom: 16px; }
 
-  .mobile-bottom-nav { height: calc(50px + var(--safe-bottom)); }
-  .mob-nav-cta-pill { width: 42px; height: 42px; margin-top: -14px; }
 }
+
 
 /* ---- Tablet portrait (769–1024px) ---- */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -3134,11 +3016,8 @@ button,
   .home-hero {
     padding-top: calc(22px + env(safe-area-inset-top));
   }
-  .mobile-bottom-nav {
-    padding-bottom: env(safe-area-inset-bottom);
-    height: calc(var(--tab-h) + env(safe-area-inset-bottom));
-  }
 }
+
 
 
 /* ── AI CHAT INTERFACE ── */

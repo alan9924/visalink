@@ -42,7 +42,7 @@ async function shareContent(title, text, url) {
 }
 
 // Global Tab Management with Haptic
-const TABS = ['inicio', 'semaforo', 'planes', 'faq', 'info', 'pasaporte', 'consulados'];
+const TABS = ['inicio', 'semaforo', 'planes', 'faq', 'info', 'pasaporte', 'consulados', 'pagos'];
 
 function showTab(id) {
   triggerHaptic('light');
@@ -821,3 +821,71 @@ function updateLiveVisaFee() {
 console.log('%cVisaLink 2026 – Loaded Successfully', 'color:#1a56db;font-size:16px;font-weight:bold;');
 checkPassportUpdates();
 updateLiveVisaFee();
+
+// =====================================================
+// 18. TERMS & CONDITIONS MODAL
+// =====================================================
+function acceptTerms() {
+  triggerHaptic('success');
+  const overlay = document.getElementById('terms-overlay');
+  if (!overlay) return;
+  overlay.style.opacity = '0';
+  overlay.style.transition = 'opacity 0.35s ease';
+  setTimeout(() => {
+    overlay.style.display = 'none';
+    overlay.remove();
+  }, 350);
+  localStorage.setItem('vl_terms_accepted', '1');
+}
+
+// Show T&C only if not previously accepted
+(function initTerms() {
+  if (localStorage.getItem('vl_terms_accepted')) {
+    const overlay = document.getElementById('terms-overlay');
+    if (overlay) overlay.remove();
+  }
+})();
+
+// =====================================================
+// 19. PAYMENT DATA COPY FUNCTIONALITY
+// =====================================================
+function copyPaymentData(elementId, btnId) {
+  triggerHaptic('medium');
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  const text = el.textContent.trim();
+  
+  const copyToClipboard = () => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    } else {
+      // Fallback for older mobile browsers
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;opacity:0;top:-100px;';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      return Promise.resolve();
+    }
+  };
+
+  copyToClipboard().then(() => {
+    const btn = document.getElementById(btnId);
+    if (btn) {
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" style="width:16px;height:16px;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> ¡Copiado!';
+      btn.style.borderColor = 'hsla(158,84%,40%,0.4)';
+      btn.style.color = '#10b981';
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.style.borderColor = '';
+        btn.style.color = '';
+      }, 2000);
+    }
+    showToast('Datos copiados al portapapeles', 'success');
+  }).catch(() => {
+    showToast('No se pudo copiar automáticamente', 'warning');
+  });
+}

@@ -27,6 +27,187 @@
       --primary-light: hsl(224,76%,65%);
     }
 
+    /* ── TERMS & CONDITIONS MODAL ── */
+    .terms-overlay {
+      position: fixed;
+      inset: 0;
+      background: hsla(225,25%,3%,0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      z-index: 9999;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+      animation: termsOverlayIn 0.4s ease;
+    }
+    @keyframes termsOverlayIn { from { opacity: 0; } to { opacity: 1; } }
+    .terms-sheet {
+      background: hsl(225,25%,7%);
+      border: 1px solid hsla(0,0%,100%,0.1);
+      border-radius: 28px 28px 0 0;
+      width: 100%;
+      max-width: 600px;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: termsSheetIn 0.45s cubic-bezier(0.2,0.8,0.2,1);
+      box-shadow: 0 -20px 60px hsla(0,0%,0%,0.5);
+    }
+    @keyframes termsSheetIn { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .terms-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid hsla(0,0%,100%,0.07);
+      flex-shrink: 0;
+    }
+    .terms-drag-handle {
+      width: 40px; height: 4px;
+      background: hsla(0,0%,100%,0.15);
+      border-radius: 2px;
+      margin: 0 auto 16px;
+    }
+    .terms-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+    .terms-subtitle {
+      font-size: 0.7rem;
+      color: hsla(0,0%,100%,0.4);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .terms-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .terms-logo-row img { height: 26px; width: auto; object-fit: contain; }
+    .terms-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .terms-body::-webkit-scrollbar { width: 4px; }
+    .terms-body::-webkit-scrollbar-track { background: transparent; }
+    .terms-body::-webkit-scrollbar-thumb { background: hsla(0,0%,100%,0.15); border-radius: 2px; }
+    .terms-section { margin-bottom: 18px; }
+    .terms-section-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--primary-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 7px;
+    }
+    .terms-section p, .terms-section li {
+      font-size: 0.81rem;
+      color: hsla(0,0%,100%,0.6);
+      line-height: 1.7;
+    }
+    .terms-section ul { padding-left: 16px; margin-top: 6px; }
+    .terms-section li { margin-bottom: 4px; }
+    .terms-footer {
+      padding: 16px 24px;
+      padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+      border-top: 1px solid hsla(0,0%,100%,0.07);
+      flex-shrink: 0;
+      background: hsl(225,25%,7%);
+    }
+    .terms-notice {
+      font-size: 0.71rem;
+      color: hsla(0,0%,100%,0.35);
+      text-align: center;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .terms-accept-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      box-shadow: 0 8px 24px hsla(224,76%,50%,0.4);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .terms-accept-btn:active { transform: scale(0.97); box-shadow: 0 4px 12px hsla(224,76%,50%,0.3); }
+
+    /* ── PAGOS TAB CSS ── */
+    .pagos-method-card {
+      background: transparent;
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .pagos-method-header {
+      padding: 18px 20px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid hsla(0,0%,100%,0.07);
+    }
+    .pagos-method-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .pagos-method-icon.spei { background: hsla(224,76%,48%,0.2); }
+    .pagos-method-icon.usdt { background: hsla(158,84%,40%,0.15); }
+    .pagos-method-meta { flex: 1; }
+    .pagos-method-name { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.05rem; color: #fff; margin-bottom: 2px; }
+    .pagos-method-region { font-size: 0.72rem; color: hsla(0,0%,100%,0.45); font-weight: 600; }
+    .pagos-method-status {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: hsla(158,84%,40%,0.12); border: 1px solid hsla(158,84%,40%,0.25);
+      color: #10b981; font-size: 0.65rem; font-weight: 800;
+      padding: 4px 10px; border-radius: 20px;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .pagos-method-status::before {
+      content: ''; width: 5px; height: 5px; background: #10b981;
+      border-radius: 50%; box-shadow: 0 0 6px #10b981; animation: pulse-dot 2s infinite;
+    }
+    .pagos-data-list { padding: 16px 20px; }
+    .pagos-data-row {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 10px 0; border-bottom: 1px solid hsla(0,0%,100%,0.05); gap: 10px;
+    }
+    .pagos-data-row:last-child { border-bottom: none; }
+    .pagos-data-label { font-size: 0.72rem; color: hsla(0,0%,100%,0.4); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; flex-shrink: 0; padding-top: 2px; }
+    .pagos-data-value { font-size: 0.88rem; color: #fff; font-weight: 600; text-align: right; word-break: break-all; }
+    .pagos-highlight-value { font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 1rem; color: var(--primary-light); letter-spacing: 0.02em; }
+    .pagos-copy-btn {
+      margin: 0 20px 16px; width: calc(100% - 40px);
+      padding: 13px; background: hsla(0,0%,100%,0.05);
+      border: 1px solid hsla(0,0%,100%,0.1); border-radius: 12px;
+      color: #fff; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 700;
+      cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: background 0.2s ease;
+    }
+    .pagos-copy-btn:active { background: hsla(0,0%,100%,0.1); }
+    .pagos-security-badge {
+      display: flex; align-items: center; gap: 8px;
+      background: hsla(158,84%,40%,0.08); border: 1px solid hsla(158,84%,40%,0.2);
+      border-radius: 12px; padding: 10px 14px; margin: 0 20px 16px;
+    }
+    .pagos-security-badge span { font-size: 0.72rem; color: #10b981; font-weight: 700; letter-spacing: 0.03em; }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -35,8 +216,7 @@
       color: #fff;
       min-height: 100svh;
       overflow-x: hidden;
-      /* room for bottom nav */
-      padding-bottom: calc(var(--tab-h) + var(--safe-bottom));
+      padding-bottom: 0;
     }
 
     /* ── TAB PAGES ── */
@@ -400,9 +580,9 @@
     .action-img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      padding: 0;
-      transform: scale(1.25);
+      object-fit: contain;
+      padding: 8px;
+      transform: scale(1);
     }
 
     .action-icon.blue  { background: hsla(224,76%,48%,0.25); }
@@ -810,8 +990,70 @@
 <body>
 
 <!-- ══════════════════════════════════════════════
-     TAB PAGES
+     TÉRMINOS Y CONDICIONES MODAL
 ══════════════════════════════════════════════ -->
+<div class="terms-overlay" id="terms-overlay">
+  <div class="terms-sheet" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title">
+    <div class="terms-header">
+      <div class="terms-drag-handle"></div>
+      <div class="terms-logo-row">
+        <img src="Photoroom_20260310_150953.PNG" alt="VisaLink" />
+      </div>
+      <div class="terms-title" id="terms-modal-title">Términos y Condiciones y Aviso de Privacidad</div>
+      <div class="terms-subtitle">Servicios de Gestión de Citas y Trámites Migratorios · VisaLink</div>
+    </div>
+    <div class="terms-body">
+      <div class="terms-section">
+        <div class="terms-section-title">1. Naturaleza y Limitaciones del Servicio</div>
+        <p>VisaLink no es un despacho de abogados ni brinda asesoría legal específica. No es una autoridad gubernamental. Los Servicios se limitan a gestión administrativa, logística y acompañamiento; no sustituyen la consulta de un abogado licenciado.</p>
+        <p style="margin-top:8px;">El Usuario acepta que el Servicio es de <strong style="color:#fff;">"mejor esfuerzo"</strong> y no garantiza resultados específicos.</p>
+      </div>
+      <div class="terms-section">
+        <div class="terms-section-title">2. Citas y Tiempos de Espera</div>
+        <p>Las fechas de cita consular están sujetas exclusivamente a la disponibilidad de las autoridades competentes. No existen tiempos garantizados. Las fechas pueden variar, reprogramarse o cancelarse sin previo aviso por causas ajenas a VisaLink.</p>
+      </div>
+      <div class="terms-section">
+        <div class="terms-section-title">3. Limitación de Responsabilidad</div>
+        <p>VisaLink no se responsabiliza por:</p>
+        <ul>
+          <li>Negativa, retraso o revocación de cualquier visa o permiso migratorio.</li>
+          <li>Cambios en leyes, políticas o procedimientos migratorios.</li>
+          <li>Errores en plataformas oficiales de cita o presentación de solicitudes.</li>
+          <li>Información inexacta proporcionada por el Usuario.</li>
+          <li>Daños directos, indirectos, incidentales o consecuentes.</li>
+        </ul>
+      </div>
+      <div class="terms-section">
+        <div class="terms-section-title">4. Política de Pagos — No Reembolsos</div>
+        <p>Todos los pagos corresponden exclusivamente a servicios administrativos. <strong style="color:#fff;">No existen reembolsos totales o parciales</strong>, salvo disposición expresa por escrito. El pago no asegura la obtención de cita ni la aprobación del trámite migratorio.</p>
+      </div>
+      <div class="terms-section">
+        <div class="terms-section-title">5. Aviso de Privacidad</div>
+        <p>VisaLink recaba datos personales como: nombre completo, nacionalidad, fecha y lugar de nacimiento, género, número de pasaporte y datos de contacto.</p>
+        <p style="margin-top:8px;"><strong style="color:#fff;">Finalidades:</strong> gestión y seguimiento de trámites; comunicación. Los datos podrán ser transferidos a autoridades de EE.UU. conforme a los procedimientos consulares.</p>
+        <p style="margin-top:8px;"><strong style="color:#fff;">Derechos ARCO:</strong> puedes ejercer tus derechos de Acceso, Rectificación, Cancelación y Oposición contactando a VisaLink.</p>
+      </div>
+      <div class="terms-section">
+        <div class="terms-section-title">6. Obligaciones del Usuario</div>
+        <ul>
+          <li>Proporcionar información veraz, completa y actualizada.</li>
+          <li>Entregar documentación legible, auténtica y válida.</li>
+          <li>No proporcionar información falsa o documentos falsificados.</li>
+          <li>Revisar periódicamente el estado de su trámite.</li>
+        </ul>
+      </div>
+      <div class="terms-section" style="margin-bottom:0;">
+        <p style="font-size:0.73rem; color:hsla(0,0%,100%,0.3);">Al aceptar, declara haber leído y comprendido íntegramente los presentes términos. Última actualización: Abril 2026. Razón social: VisaLink.</p>
+      </div>
+    </div>
+    <div class="terms-footer">
+      <p class="terms-notice">Al continuar, confirmas que leíste y aceptas los Términos y Condiciones y el Aviso de Privacidad de VisaLink.</p>
+      <button class="terms-accept-btn" onclick="acceptTerms()" id="terms-accept-btn">Entendido, Acepto los Términos</button>
+    </div>
+  </div>
+</div>
+
+
 
 <!-- ── TAB 1: INICIO ── -->
 <div class="tab-page active" id="tab-inicio">
@@ -924,14 +1166,17 @@
           </div>
         </div>
 
-
-
         <!-- WhatsApp — full width -->
         <div class="action-card action-card-wide" onclick="window.open('https://wa.me/524271035773?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20el%20tr%C3%A1mite%20de%20Pasaporte%20Mexicano','_blank')" data-glow>
           <div class="glowing-effect-wrapper"><div class="glowing-effect-glow"></div></div>
-          <div class="action-card-content">
-            <div class="action-card-title">Hablar con un Asesor</div>
-            <div class="action-card-desc">WhatsApp · Respuesta en minutos</div>
+          <div style="display:flex; align-items:center; gap:14px; z-index:2; position:relative;">
+            <div class="action-icon" style="background:hsla(141,72%,40%,0.25); flex-shrink:0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color:#25d366;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div class="action-card-content" style="text-align:left; align-items:flex-start;">
+              <div class="action-card-title" style="font-size:1.2rem;">Hablar con un Asesor</div>
+              <div class="action-card-desc">WhatsApp · Respuesta en minutos</div>
+            </div>
           </div>
         </div>
 
@@ -954,7 +1199,7 @@
             <div style="font-weight:700; font-size:0.85rem;">María G.</div>
             <div style="font-size:0.72rem; color:hsla(0,0%,100%,0.4);">Guadalajara · Plan Pro</div>
           </div>
-          <div style="margin-left:auto; background:hsla(158,84%,40%,0.12); border:1px solid hsla(158,84%,40%,0.25); border-radius:8px; padding:3px 9px; font-size:0.65rem; font-weight:700; color:#10b981;">✓ VISA APROBADA</div>
+          <div style="margin-left:auto; background:hsla(158,84%,40%,0.12); border:1px solid hsla(158,84%,40%,0.25); border-radius:8px; padding:3px 9px; font-size:0.65rem; font-weight:700; color:#10b981; display:flex; align-items:center; gap:4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> VISA APROBADA</div>
         </div>
       </div>
 
@@ -970,7 +1215,7 @@
             <div style="font-weight:700; font-size:0.85rem;">Roberto S.</div>
             <div style="font-size:0.72rem; color:hsla(0,0%,100%,0.4);">Monterrey · Plan Estándar</div>
           </div>
-          <div style="margin-left:auto; background:hsla(158,84%,40%,0.12); border:1px solid hsla(158,84%,40%,0.25); border-radius:8px; padding:3px 9px; font-size:0.65rem; font-weight:700; color:#10b981;">✓ VISA APROBADA</div>
+          <div style="margin-left:auto; background:hsla(158,84%,40%,0.12); border:1px solid hsla(158,84%,40%,0.25); border-radius:8px; padding:3px 9px; font-size:0.65rem; font-weight:700; color:#10b981; display:flex; align-items:center; gap:4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> VISA APROBADA</div>
         </div>
       </div>
 
@@ -986,7 +1231,7 @@
             <div style="font-weight:700; font-size:0.85rem;">Ana L.</div>
             <div style="font-size:0.72rem; color:hsla(0,0%,100%,0.4);">CDMX · Plan Pro Familiar</div>
           </div>
-          <div style="margin-left:auto; background:hsla(158,84%,40%,0.12); border:1px solid hsla(158,84%,40%,0.25); border-radius:8px; padding:3px 9px; font-size:0.65rem; font-weight:700; color:#10b981;">✓ VISA APROBADA</div>
+          <div style="margin-left:auto; background:hsla(158,84%,40%,0.12); border:1px solid hsla(158,84%,40%,0.25); border-radius:8px; padding:3px 9px; font-size:0.65rem; font-weight:700; color:#10b981; display:flex; align-items:center; gap:4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> VISA APROBADA</div>
         </div>
       </div>
     </section>
@@ -1018,8 +1263,8 @@
           <p style="font-size:0.75rem; color:hsla(0,0%,100%,0.4); line-height:1.5; max-width:180px;">Gestoría especializada en trámites consulares para Visa USA.</p>
         </div>
         <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-end;">
-          <a href="https://wa.me/524271035773" target="_blank" style="font-size:0.75rem; color:hsla(0,0%,100%,0.5); text-decoration:none;">📞 +52 427 103 5773</a>
-          <a href="mailto:visalink@gmail.com" style="font-size:0.75rem; color:hsla(0,0%,100%,0.5); text-decoration:none;">✉ Contacto por WhatsApp</a>
+          <a href="https://wa.me/524271035773" target="_blank" style="font-size:0.75rem; color:hsla(0,0%,100%,0.5); text-decoration:none; display:flex; align-items:center; gap:5px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 01.01 4.05 2 2 0 012 1.81h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9a16 16 0 009.09 9.09l.27-.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +52 427 103 5773</a>
+          <a href="mailto:visalink@gmail.com" style="font-size:0.75rem; color:hsla(0,0%,100%,0.5); text-decoration:none; display:flex; align-items:center; gap:5px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Contacto por WhatsApp</a>
           <div style="font-size:0.72rem; color:hsla(0,0%,100%,0.3);">México · Servicio Nationwide</div>
         </div>
       </div>
@@ -1188,6 +1433,25 @@
             <button class="btn-plan btn-plan-primary btn-shimmer" onclick="handlePurchase('Pro', 2499)">Contratar Pro</button>
           </div>
 
+          <!-- Adelanto de Cita -->
+          <div class="pricing-card" style="border-color: var(--primary-light); background: hsla(224, 76%, 55%, 0.05);">
+            <div class="plan-name">Adelanto de Cita</div>
+            <div class="price-block">
+              <span class="price-currency">$</span>
+              <span class="price-amount">1,245</span>
+              <span class="price-period">MXN / único pago</span>
+            </div>
+            <p class="plan-tagline">Cuentas ya existentes</p>
+            <ul class="plan-features">
+              <li><span class="feat-check"></span> Búsqueda constante de citas</li>
+              <li><span class="feat-check"></span> Adelanto únicamente de la cita</li>
+              <li><span class="feat-check"></span> Notificaciones inmediatas</li>
+              <li><span class="feat-check"></span> Sin gestión de DS-160</li>
+              <li><span class="feat-check"></span> Soporte vía WhatsApp</li>
+            </ul>
+            <button class="btn-plan btn-plan-secondary" onclick="handlePurchase('Adelanto de Cita', 1245)">Contratar Adelanto</button>
+          </div>
+
           <!-- Pasaporte -->
           <div class="pricing-card" style="border-color: hsla(334, 82%, 50%, 0.3); background: linear-gradient(135deg, hsla(334, 82%, 50%, 0.1), transparent);">
              <div class="plan-name" style="color: #ff4d94;">Pasaporte</div>
@@ -1214,6 +1478,15 @@
         </p>
       </div>
     </section>
+
+    <!-- Ver datos de pago CTA -->
+    <div style="padding: 4px 18px 32px;">
+      <button onclick="showTab('pagos')" style="width:100%; padding:14px; background:hsla(0,0%,100%,0.05); border:1px solid hsla(0,0%,100%,0.1); border-radius:14px; color:#fff; font-family:'Inter',sans-serif; font-size:0.88rem; font-weight:700; cursor:pointer; -webkit-tap-highlight-color:transparent; display:flex; align-items:center; justify-content:center; gap:8px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        Ver datos de transferencia
+      </button>
+    </div>
+
   </div>
 </div>
 
@@ -1755,10 +2028,123 @@
 <!-- /tab-consulados -->
 
 
+<!-- ── TAB: PAGOS ── -->
+<div class="tab-page" id="tab-pagos">
+  <div class="tab-page-inner" style="padding-bottom: 90px;">
+
+    <!-- Mini header -->
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom: 24px;">
+      <button onclick="showTab('inicio')" style="background:hsla(0,0%,100%,0.06); border:1px solid hsla(0,0%,100%,0.1); color:#fff; width:36px; height:36px; border-radius:50%; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent;" aria-label="Volver a inicio">&#8249;</button>
+      <span style="font-weight:700; font-size:0.95rem;">Métodos de Pago</span>
+    </div>
+
+    <!-- Header card -->
+    <div style="margin-bottom: 24px; background: linear-gradient(90deg, hsla(158, 84%, 40%, 0.1), transparent); padding: 20px; border-radius: 16px; border-left: 4px solid #10b981;">
+      <h2 style="font-size: 1.6rem; margin-bottom: 6px; font-family: 'Outfit', sans-serif; font-weight: 800;">Datos de Transferencia</h2>
+      <p style="color: hsla(0,0%,100%,0.55); font-size: 0.88rem; line-height:1.5;">Realiza tu pago de forma segura. Elige el método y copia los datos.</p>
+    </div>
+
+    <!-- ── SPEI Card ── -->
+    <div class="pagos-method-card">
+      <div class="pagos-method-header">
+        <div style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-size:1.6rem; font-weight:800; color:hsla(224,76%,65%,0.9); flex-shrink:0;">$</div>
+        <div class="pagos-method-meta">
+          <div class="pagos-method-name">Transferencia Bancaria</div>
+          <div class="pagos-method-region" style="display:flex; align-items:center; gap:4px;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            México · SPEI
+          </div>
+        </div>
+        <div class="pagos-method-status">Activo</div>
+      </div>
+      <div class="pagos-data-list">
+        <div class="pagos-data-row">
+          <span class="pagos-data-label">Tipo</span>
+          <span class="pagos-data-value">Clave SPEI</span>
+        </div>
+        <div class="pagos-data-row">
+          <span class="pagos-data-label">CLABE SPEI</span>
+          <span class="pagos-data-value pagos-highlight-value" id="spei-clabe">710969000138227788</span>
+        </div>
+        <div class="pagos-data-row">
+          <span class="pagos-data-label">Banco</span>
+          <span class="pagos-data-value">Global</span>
+        </div>
+      </div>
+      <button class="pagos-copy-btn" id="btn-copy-spei" onclick="copyPaymentData('spei-clabe', 'btn-copy-spei')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex-shrink:0;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Toca para copiar CLABE
+      </button>
+    </div>
+
+    <!-- ── USDT Polygon Card ── -->
+    <div class="pagos-method-card">
+      <div class="pagos-method-header">
+        <div style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-size:1.6rem; font-weight:800; color:#10b981; flex-shrink:0;">₮</div>
+        <div class="pagos-method-meta">
+          <div class="pagos-method-name">USDT</div>
+          <div class="pagos-method-region" style="display:flex; align-items:center; gap:4px;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            Red Polygon
+          </div>
+        </div>
+        <div class="pagos-method-status">Activo</div>
+      </div>
+      <div class="pagos-data-list">
+        <div class="pagos-data-row">
+          <span class="pagos-data-label">Moneda</span>
+          <span class="pagos-data-value">USDT</span>
+        </div>
+        <div class="pagos-data-row">
+          <span class="pagos-data-label">Red</span>
+          <span class="pagos-data-value">Polygon (MATIC)</span>
+        </div>
+        <div class="pagos-data-row">
+          <span class="pagos-data-label">Dirección</span>
+          <span class="pagos-data-value pagos-highlight-value" id="usdt-address" style="font-size:0.78rem; word-break:break-all;">0x59b58b80bf58f31eb245dda43eb545823431efe6</span>
+        </div>
+      </div>
+      <div class="pagos-security-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="width:18px;height:18px;flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>TRANSACCIÓN PROTEGIDA POR RED POLYGON</span>
+      </div>
+      <button class="pagos-copy-btn" id="btn-copy-usdt" onclick="copyPaymentData('usdt-address', 'btn-copy-usdt')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex-shrink:0;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copiar dirección de billetera
+      </button>
+    </div>
+
+    <!-- Aviso importante -->
+    <div style="background:hsla(38,92%,50%,0.08); border:1px solid hsla(38,92%,50%,0.2); border-radius:14px; padding:14px 16px; margin-top:4px; margin-bottom:20px;">
+      <div style="display:flex; align-items:flex-start; gap:10px;">
+        <span style="flex-shrink:0; display:flex; align-items:center; margin-top:1px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </span>
+        <div>
+          <div style="font-size:0.78rem; font-weight:800; color:#fbbf24; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Aviso Importante</div>
+          <p style="font-size:0.78rem; color:hsla(0,0%,100%,0.6); line-height:1.6;">Después de realizar tu pago, envía el comprobante por WhatsApp para agilizar la activación de tu servicio. Verifica siempre que la red sea <strong style="color:#fff;">Polygon</strong> al enviar USDT para evitar pérdida de fondos.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp comprobante CTA -->
+    <a href="https://wa.me/524271035773?text=Hola!%20Realicé%20mi%20pago%20y%20quiero%20enviar%20el%20comprobante." target="_blank" style="display:flex; align-items:center; justify-content:center; gap:10px; background:linear-gradient(135deg,#25d366,#128c7e); color:#fff; font-family:'Outfit',sans-serif; font-weight:800; font-size:0.95rem; padding:16px; border-radius:16px; text-decoration:none; -webkit-tap-highlight-color:transparent; box-shadow:0 8px 24px hsla(150,84%,40%,0.3);">
+      <svg viewBox="0 0 24 24" fill="white" style="width:22px;height:22px;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar comprobante por WhatsApp
+    </a>
+
+  </div>
+</div>
+<!-- /tab-pagos -->
+
+
+
+
+
 <!-- WhatsApp Floating Button (only on non-mobile or scrollable tabs) -->
 <a href="https://wa.me/524271035773?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20VisaLink" target="_blank"
     class="whatsapp-float" id="whatsapp-float" aria-label="Chat en WhatsApp"
-    style="bottom: calc(80px + var(--safe-bottom));">
+    style="bottom: calc(24px + var(--safe-bottom));">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
     </svg>
@@ -1766,7 +2152,7 @@
 </a>
 
 <!-- Cookie Consent -->
-<div class="cookie-banner" id="cookie-banner" style="bottom: calc(76px + var(--safe-bottom));">
+<div class="cookie-banner" id="cookie-banner" style="bottom: calc(16px + var(--safe-bottom));">
     <div class="cookie-content">
         <p>Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra <a href="#" id="cookie-privacy-link">Política de Privacidad</a>.</p>
         <div class="cookie-btns">

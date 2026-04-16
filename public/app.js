@@ -889,3 +889,97 @@ function copyPaymentData(elementId, btnId) {
     showToast('No se pudo copiar automáticamente', 'warning');
   });
 }
+
+// =====================================================
+// 19. IMAGE CAROUSEL LOGIC
+// =====================================================
+(function initCarousel() {
+  const wrapper = document.getElementById('carousel-wrapper');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.carousel-indicators .dot');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  
+  if (!wrapper || slides.length === 0) return;
+
+  let currentIndex = 0;
+  let interval;
+
+  function updateCarousel() {
+    wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+    // Update dots
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  function startAutoPlay() {
+    interval = setInterval(nextSlide, 5000);
+  }
+
+  function stopAutoPlay() {
+    clearInterval(interval);
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      triggerHaptic('light');
+      nextSlide();
+      stopAutoPlay();
+      startAutoPlay();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      triggerHaptic('light');
+      prevSlide();
+      stopAutoPlay();
+      startAutoPlay();
+    });
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      triggerHaptic('light');
+      currentIndex = index;
+      updateCarousel();
+      stopAutoPlay();
+      startAutoPlay();
+    });
+  });
+
+  // Touch support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  wrapper.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  wrapper.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) {
+      nextSlide();
+      stopAutoPlay();
+      startAutoPlay();
+    } else if (touchEndX - touchStartX > 50) {
+      prevSlide();
+      stopAutoPlay();
+      startAutoPlay();
+    }
+  }, { passive: true });
+
+  startAutoPlay();
+})();

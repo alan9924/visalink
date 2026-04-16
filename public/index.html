@@ -985,6 +985,108 @@
       background: hsla(0, 0%, 100%, 0.2);
       transform: scale(0.95);
     }
+
+    /* ── IMAGE CAROUSEL ── */
+    .carousel-section {
+      padding: 80px 0;
+      background: transparent;
+    }
+    .carousel-container {
+      position: relative;
+      max-width: 800px; /* Reduced from 1000px */
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 28px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      border: 1px solid hsla(0,0%,100%,0.1);
+      background: #000; /* Solid background for contain */
+      backdrop-filter: blur(20px);
+    }
+    .carousel-wrapper {
+      display: flex;
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      width: 100%;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      height: 450px; /* Fixed height for consistency */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
+    .carousel-slide img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain; /* Show complete image */
+      transition: transform 0.5s ease;
+    }
+    .carousel-slide:hover img {
+      transform: scale(1.02);
+    }
+    .carousel-prev, .carousel-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: hsla(0,0%,100%,0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid hsla(0,0%,100%,0.2);
+      color: white;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .carousel-prev:active, .carousel-next:active {
+      transform: translateY(-50%) scale(0.9);
+      background: hsla(0,0%,100%,0.2);
+    }
+    .carousel-prev { left: 24px; }
+    .carousel-next { right: 24px; }
+    .carousel-indicators {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 11;
+      background: hsla(0,0%,0%,0.3);
+      padding: 8px 16px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+    }
+    .carousel-indicators .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: hsla(0,0%,100%,0.3);
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+    .carousel-indicators .dot.active {
+      background: var(--primary-light);
+      transform: scale(1.4);
+      width: 24px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px var(--primary-light);
+    }
+    @media (max-width: 768px) {
+      .carousel-container { border-radius: 20px; margin: 0 4px; }
+      .carousel-slide { height: 300px; } /* Reduced height for mobile */
+      .carousel-prev, .carousel-next { width: 44px; height: 44px; font-size: 1.4rem; }
+      .carousel-prev { left: 12px; }
+      .carousel-next { right: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -1183,55 +1285,26 @@
       </div>
     </section>
 
-    <!-- ── TESTIMONIALES ── -->
-    <section style="padding: 0 18px 8px;">
-      <div style="font-size:0.7rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:hsla(0,0%,100%,0.4); margin-bottom:14px;">Lo que dicen nuestros clientes</div>
 
-      <!-- Testimonial 1 -->
-      <div style="background:hsla(0,0%,100%,0.04); border:1px solid hsla(0,0%,100%,0.09); border-radius:18px; padding:18px; margin-bottom:12px; position:relative;">
-        <div style="display:flex; gap:3px; margin-bottom:10px;">
-          <span style="color:#f59e0b; font-size:0.85rem;">★★★★★</span>
+    <!-- Gallería Carousel -->
+    <section class="carousel-section" id="galeria-home">
+      <div style="font-size:0.7rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:hsla(0,0%,100%,0.4); margin-bottom:14px;">Experiencia VisaLink</div>
+      <div class="carousel-container" id="main-carousel">
+        <div class="carousel-wrapper" id="carousel-wrapper">
+          <div class="carousel-slide"><img src="assets/IMG_8258.jpg" alt="VisaLink Gallery 1" loading="lazy"></div>
+          <div class="carousel-slide"><img src="assets/IMG_8256.jpg" alt="VisaLink Gallery 2" loading="lazy"></div>
+          <div class="carousel-slide"><img src="assets/IMG_8254.jpg" alt="VisaLink Gallery 3" loading="lazy"></div>
+          <div class="carousel-slide"><img src="assets/IMG_8253.jpg" alt="VisaLink Gallery 4" loading="lazy"></div>
         </div>
-        <p style="font-size:0.88rem; color:hsla(0,0%,100%,0.8); line-height:1.6; margin-bottom:12px;">&ldquo;Me aprobaron la visa en mi primera cita. Pensé que era muy difícil pero el equipo de VisaLink me guió en todo el DS-160 y la preparación de la entrevista. 100% recomendado.&rdquo;</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,hsl(224,76%,48%),#a78bfa); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.85rem;">M</div>
-          <div>
-            <div style="font-weight:700; font-size:0.85rem;">María G.</div>
-            <div style="font-size:0.72rem; color:hsla(0,0%,100%,0.4);">Guadalajara · Plan Pro</div>
-          </div>
-          <div style="margin-left:auto; background:hsla(158,84%,40%,0.12); border:1px solid hsla(158,84%,40%,0.25); border-radius:8px; padding:3px 9px; font-size:0.65rem; font-weight:700; color:#10b981; display:flex; align-items:center; gap:4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> VISA APROBADA</div>
-        </div>
-      </div>
-
-      <!-- Testimonial 2 -->
-      <div style="background:hsla(0,0%,100%,0.04); border:1px solid hsla(0,0%,100%,0.09); border-radius:18px; padding:18px; margin-bottom:12px;">
-        <div style="display:flex; gap:3px; margin-bottom:10px;">
-          <span style="color:#f59e0b; font-size:0.85rem;">★★★★★</span>
-        </div>
-        <p style="font-size:0.88rem; color:hsla(0,0%,100%,0.8); line-height:1.6; margin-bottom:12px;">&ldquo;Excelente servicio, muy profesionales. Llenaron mi DS-160 sin errores y me avisaron de un error que yo había cometido antes. La atención por WhatsApp fue inmediata.&rdquo;</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,#10b981,#06b6d4); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.85rem;">R</div>
-          <div>
-            <div style="font-weight:700; font-size:0.85rem;">Roberto S.</div>
-            <div style="font-size:0.72rem; color:hsla(0,0%,100%,0.4);">Monterrey · Plan Estándar</div>
-          </div>
-          <div style="margin-left:auto; background:hsla(158,84%,40%,0.12); border:1px solid hsla(158,84%,40%,0.25); border-radius:8px; padding:3px 9px; font-size:0.65rem; font-weight:700; color:#10b981; display:flex; align-items:center; gap:4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> VISA APROBADA</div>
-        </div>
-      </div>
-
-      <!-- Testimonial 3 -->
-      <div style="background:hsla(0,0%,100%,0.04); border:1px solid hsla(0,0%,100%,0.09); border-radius:18px; padding:18px; margin-bottom:20px;">
-        <div style="display:flex; gap:3px; margin-bottom:10px;">
-          <span style="color:#f59e0b; font-size:0.85rem;">★★★★★</span>
-        </div>
-        <p style="font-size:0.88rem; color:hsla(0,0%,100%,0.8); line-height:1.6; margin-bottom:12px;">&ldquo;Tramité la visa para toda mi familia (4 personas). El proceso fue muy ordenado, nos acompañaron paso a paso. ¡Todos aprobados! Vale cada peso.&rdquo;</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,#f59e0b,#f97316); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.85rem;">A</div>
-          <div>
-            <div style="font-weight:700; font-size:0.85rem;">Ana L.</div>
-            <div style="font-size:0.72rem; color:hsla(0,0%,100%,0.4);">CDMX · Plan Pro Familiar</div>
-          </div>
-          <div style="margin-left:auto; background:hsla(158,84%,40%,0.12); border:1px solid hsla(158,84%,40%,0.25); border-radius:8px; padding:3px 9px; font-size:0.65rem; font-weight:700; color:#10b981; display:flex; align-items:center; gap:4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> VISA APROBADA</div>
+        
+        <button class="carousel-prev" id="prevBtn" aria-label="Anterior"><span>‹</span></button>
+        <button class="carousel-next" id="nextBtn" aria-label="Siguiente"><span>›</span></button>
+        
+        <div class="carousel-indicators" id="carousel-dots">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+          <span class="dot" data-index="3"></span>
         </div>
       </div>
     </section>
@@ -1750,56 +1823,10 @@
     </section>
 
 
-    <!-- Testimonials preview -->
-    <section class="testimonials" id="testimonios">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Lo que dicen nuestros clientes</span>
-          <h2 class="section-title">Comentarios</h2>
-        </div>
-        <div style="height: 380px; overflow: hidden; position: relative; mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);">
-          <div style="display:flex; flex-direction:column; gap:14px; animation: scroll-vertical-loop 16s linear infinite;">
-            <div class="testimonial-card">
-              <p>"Llevaba dos rechazos previos y ya había perdido la esperanza. Mi asesor me escuchó con paciencia, entendió mi situación y me guió paso a paso. Gracias a su dedicación, me aprobaron la visa en mi tercera cita."</p>
-              <div class="testimonial-author"><div class="author-avatar">MR</div><div><strong>Miguel R.</strong><span>CDMX · Visa B1/B2 aprobada</span></div></div>
-            </div>
-            <div class="testimonial-card">
-              <p>"Estaba muy nerviosa y no sabía por dónde empezar. Mi asesora fue increíblemente amable, me explicó todo con calma y nunca me dejó sola en el proceso. Cuando el cónsul me aprobó, casi lloré de felicidad."</p>
-              <div class="testimonial-author"><div class="author-avatar">LG</div><div><strong>Laura G.</strong><span>Guadalajara · Visa B1/B2 aprobada</span></div></div>
-            </div>
-            <div class="testimonial-card">
-              <p>"Lo que más valoré fue la atención personalizada. Mi asesor conocía mi caso de memoria, me respondía al instante y me daba seguridad cuando yo dudaba. Esa confianza me llevó a la entrevista tranquilo y salí aprobado."</p>
-              <div class="testimonial-author"><div class="author-avatar">CR</div><div><strong>Carlos R.</strong><span>Monterrey · Visa B1/B2 aprobada</span></div></div>
-            </div>
-            <!-- Duplicated exactly for infinite loop -->
-            <div class="testimonial-card">
-              <p>"Jamás imaginé que el proceso pudiera ser tan fluido. Mi asesor me preparó para cada pregunta del cónsul. Llegué segura a la entrevista y en menos de 5 minutos me dieron la aprobación."</p>
-              <div class="testimonial-author"><div class="author-avatar">SP</div><div><strong>Sofía P.</strong><span>Tijuana · Visa B1/B2 aprobada</span></div></div>
-            </div>
-            <div class="testimonial-card">
-              <p>"Tenía miedo por mi historial laboral, pensé que me negarían. Mi asesor trabajó conmigo semanas antes de la cita, ajustando cada detalle. El día de la entrevista el cónsul aprobó sin dudar."</p>
-              <div class="testimonial-author"><div class="author-avatar">JM</div><div><strong>Jorge M.</strong><span>Hermosillo · Visa B1/B2 aprobada</span></div></div>
-            </div>
-            <div class="testimonial-card">
-              <p>"El trato humano marca la diferencia. Mi asesora no solo me orientó, me dio confianza cuando más lo necesitaba. Hoy tengo mi visa y ya estoy planeando mi viaje. No podría haber llegado sola hasta aquí."</p>
-              <div class="testimonial-author"><div class="author-avatar">AM</div><div><strong>Ana M.</strong><span>Puebla · Visa B1/B2 aprobada</span></div></div>
-            </div>
-            <div class="testimonial-card">
-              <p>"Llevaba dos rechazos previos y ya había perdido la esperanza. Mi asesor me escuchó con paciencia, entendió mi situación y me guió paso a paso. Gracias a su dedicación, me aprobaron la visa en mi tercera cita."</p>
-              <div class="testimonial-author"><div class="author-avatar">MR</div><div><strong>Miguel R.</strong><span>CDMX · Visa B1/B2 aprobada</span></div></div>
-            </div>
-            <div class="testimonial-card">
-              <p>"Estaba muy nerviosa y no sabía por dónde empezar. Mi asesora fue increíblemente amable, me explicó todo con calma y nunca me dejó sola en el proceso. Cuando el cónsul me aprobó, casi lloré de felicidad."</p>
-              <div class="testimonial-author"><div class="author-avatar">LG</div><div><strong>Laura G.</strong><span>Guadalajara · Visa B1/B2 aprobada</span></div></div>
-            </div>
-            <div class="testimonial-card">
-              <p>"Lo que más valoré fue la atención personalizada. Mi asesor conocía mi caso de memoria, me respondía al instante y me daba seguridad cuando yo dudaba. Esa confianza me llevó a la entrevista tranquilo y salí aprobado."</p>
-              <div class="testimonial-author"><div class="author-avatar">CR</div><div><strong>Carlos R.</strong><span>Monterrey · Visa B1/B2 aprobada</span></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
+
+    <!-- Carousel already in home tab -->
+
 
     <!-- Footer small -->
     <footer style="padding: 32px 18px calc(16px + var(--safe-bottom)); border-top: 1px solid hsla(0,0%,100%,0.07); margin-top:40px;">
